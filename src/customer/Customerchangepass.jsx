@@ -13,7 +13,7 @@ export default function CustomerChangepass({customer,Onclose}){
     const [message,setMessage]=useState(null);
     const [error,setError]=useState(null);
     const [showpassword,setShowpassword]=useState({old:false,new:false,confirm:false});
-
+    const url=process.env.REACT_APP_API_URL;
     //auto clear mssage after 4s
 
     useEffect(()=>{
@@ -62,7 +62,7 @@ export default function CustomerChangepass({customer,Onclose}){
         }
 
         try {
-            const res=await axios.post("http://localhost:5511/customer/changepassword",{Cuserid,Oldpassword:oldpassword,Newpassword:newpassword});
+            const res=await axios.post(`${url}/customer/changepassword`,{Cuserid,Oldpassword:oldpassword,Newpassword:newpassword});
             setMessage(res.data?.message||"Password Change Successfully!");
             setOldpassword('');
             setNewpassword('');

@@ -65,8 +65,10 @@ export default function MainPage() {
   let [catgid,setCatgid]=useState();
   const [productcatg,setProductcatg]=useState([]);
   const [isproduct,setIsproduct]=useState(true);
+    const apiurl=process.env.REACT_APP_API_URL;
+
   useEffect(()=>{
-    axios.get("http://localhost:5511/productcatg/showproductcatg").then((res)=>{
+    axios.get(`${apiurl}/productcatg/showproductcatg`).then((res)=>{
             setProductcatg(res.data);})
   },[]);
 

@@ -9,7 +9,8 @@ export default function EditVenderProfile({vender,onClose,onUpdate}){
     const [previewImage,setPreviewImage]=useState(null);
     const [venderList,setVenderList]=useState([]);
 
-    const url="http://localhost:5511/vender/"
+    const apiurl=process.env.REACT_APP_API_URL;
+    const url=`${apiurl}/vender/`;
 
     const fetchVenderList=async ()=>{
         try {
@@ -55,7 +56,7 @@ export default function EditVenderProfile({vender,onClose,onUpdate}){
                 form.append("file",newImage);
             }
 
-            const res=await axios.put(`${url}update/${formData.Vuserid}`,form,{headers:{"Content-Type":"multipart/form-data"}});
+            const res=await axios.put(`${apiurl}update/${formData.Vuserid}`,form,{headers:{"Content-Type":"multipart/form-data"}});
             toast.success(res.data.message);
             onUpdate({...formData,...res.data.updateData});
             setTimeout(() => {

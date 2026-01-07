@@ -13,15 +13,16 @@
          const [vlist,setVList] = useState([]);
 
          let cname="";
+        const url=process.env.REACT_APP_API_URL;
 
          useEffect(() => {
-            axios.get("http://localhost:5511/product/showproduct").then((res) => {
+            axios.get(`${url}/product/showproduct`).then((res) => {
                 setPList(res.data);
             }).catch((err) => {
                 alert(err);
             });
 
-            axios.get("http://localhost:5511/productcatg/showproductcatg").then((res) => {
+            axios.get(`${url}/productcatg/showproductcatg`).then((res) => {
                 setPCatgList(res.data);
             }).catch((err) => {
                  alert(err);
@@ -30,7 +31,7 @@
 
                 // GET VENDER
 
-                axios.get("http://localhost:5511/vender/getallvender").then((res) => {
+                axios.get(`${url}/vender/getallvender`).then((res) => {
                     setVList(res.data);
                 }).catch((err)=> {
                     alert(err);
@@ -40,7 +41,7 @@
                  const handleActiveButton=(evt) => {
                     let pid=parseInt(evt);
                     let status=true;
-                    axios.put("http://localhost:5511/product/updateproductstatus/"+pid+"/"+status).then((res) => {
+                    axios.put(`${url}/product/updateproductstatus/${pid}/${status}`).then((res) => {
                       alert("Product Status Updated");
                  }).catch((err) => {
                     alert(err);
@@ -50,7 +51,7 @@
                  const handleInactiveButton=(evt) =>{
                  let pid=parseInt(evt);
                     let status=false;
-                    axios.put("http://localhost:5511/product/updateproductstatus/"+pid+"/"+status).then((res) => {
+                    axios.put(`${url}/product/updateproductstatus/${pid}/${status}`).then((res) => {
                       alert("Product Status Updated");
                  }).catch((err) => {
                     alert(err);
@@ -80,7 +81,7 @@
                  const handleSearch=(evt)=>{
                     if(evt.target.value>0)
                     {
-                        axios.get("http://localhost:5511/product/showproductbycatg/"+evt.target.value).then((res)=>{
+                        axios.get(`${url}/product/showproductbycatg/`+evt.target.value).then((res)=>{
                             setPList(res.data);
                         }).catch((err)=>{
                             alert(err);
@@ -88,7 +89,7 @@
                     }
                     else
                     {
-                       axios.get("http://localhost:5511/product/showproduct").then((res)=>{
+                       axios.get(`${url}/product/showproduct`).then((res)=>{
                             setPList(res.data);
                         }).catch((err)=>{
                             alert(err);
@@ -101,7 +102,7 @@
                  const handleSearchByVender=(evt) => {
                     if(evt.target.value>0)
                     {
-                        axios.get("http://localhost:5511/product/showproductbyvender/"+evt.target.value).then((res) => {
+                        axios.get(`${url}/product/showproductbyvender/`+evt.target.value).then((res) => {
                             setPList(res.data);
                         }).catch((err)=> {
                             alert(err);
@@ -109,7 +110,7 @@
                     }
                     else
                     {
-                         axios.get("http://localhost:5511/product/showproduct").then((res) => {
+                         axios.get(`${url}/product/showproduct`).then((res) => {
                             setPList(res.data);
                         }).catch((err)=> {
                             alert(err);
@@ -122,7 +123,7 @@
                       const handleSearchByStatus=(evt) => {
                     if(evt.target.value!=="0")
                     {
-                        axios.get("http://localhost:5511/product/showproductbystatus/"+evt.target.value).then((res) => {
+                        axios.get(`${url}/product/showproductbystatus/`+evt.target.value).then((res) => {
                             setPList(res.data);
                         }).catch((err)=> {
                             alert(err);
@@ -130,7 +131,7 @@
                     }
                     else
                     {
-                         axios.get("http://localhost:5511/product/showproduct").then((res) => {
+                         axios.get(`${url}/product/showproduct`).then((res) => {
                             setPList(res.data);
                         }).catch((err)=> {
                             alert(err);

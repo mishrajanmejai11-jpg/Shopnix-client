@@ -38,7 +38,7 @@ export default function AdminVendorSales(){
     const[errorVenders, setErrorVenders]=useState("");
     const[errorSales, setErrorSales]=useState("");
 
-    const IMAGE_BASE_URL="http://localhost:5511/product/";
+    const IMAGE_BASE_URL=`${process.env.REACT_APP_API_URL}/product`;
 
     //===============================
     // FETCH VENDERS
@@ -47,7 +47,7 @@ export default function AdminVendorSales(){
         setErrorVenders("");
         setLoadingVenders(true);
         try{
-            const res=await axios.get("http://localhost:5511/vender/getallvender");
+            const res=await axios.get(`${process.env.REACT_APP_API_URL}/vender/getallvender`);
             setVenderList(res.data || []);
         }catch(err){
             setErrorVenders("Unable to load vendors.");
@@ -68,7 +68,7 @@ export default function AdminVendorSales(){
         setLoadingSales(true);
 
         try{
-            const res=await axios.get(`http://localhost:5511/sales/vender/${selectedVender}`);
+            const res=await axios.get(`${process.env.REACT_APP_API_URL}/vender/${selectedVender}`);
             const data= res.data.sales ?? [];
             setSales(Array.isArray(data) ? data: []);
             setSalesPage([]);
@@ -228,7 +228,7 @@ export default function AdminVendorSales(){
                                 <td>{s.product?.pname}</td>
                                 <td>{s.quantity}</td>
                                 <td>{s.totalPrice}</td>
-                                <td><img src={`${IMAGE_BASE_URL}/getimage/${s.product?.ppicname}`} 
+                                <td><img src={s.product?.ppicname}
                                 alt={s.product?.pname} height="40" width="40" 
                                 onError={(e)=> (e.target.src+`${IMAGE_BASE_URL}default.png`)}/>
                                 </td>

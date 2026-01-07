@@ -24,8 +24,8 @@ export default function CustomerReg(){
     const [ctlist,setCtList] = useState([]);
     const [errors,setErrors] = useState({});
     const [customerList,setCustomer]=useState([]);
-
-    const Apiurl="http://localhost:5511/customer/";
+    const url=process.env.REACT_APP_API_URL;
+    const Apiurl=`${url}/customer/`;
 
     useEffect(()=>{
         axios.get(`${Apiurl}getcustomer`).then((res)=>{
@@ -34,7 +34,7 @@ export default function CustomerReg(){
 
         }).catch((err)=> toast.error(err));
 
-        axios.get("http://localhost:5511/state/show").then((res)=> setstList(res.data)).catch((err)=> toast.error(err));
+        axios.get(`${url}/state/show`).then((res)=> setstList(res.data)).catch((err)=> toast.error(err));
     },[]);
         const handleClearform=()=>{
             setCUserId('');
@@ -51,7 +51,7 @@ export default function CustomerReg(){
         setStId(e.target.value);
         let stid=e.target.value;
         console.log('stid',stid)
-        axios.get('http://localhost:5511/city/showcitybystate/'+stid).then((res)=>setCtList(res.data)).catch(err=> toast.error(err));
+        axios.get(`${url}/city/showcitybystate/`+stid).then((res)=>setCtList(res.data)).catch(err=> toast.error(err));
     }
 
      const Validateform=()=>{

@@ -20,8 +20,8 @@ export default function ProductList(props){
     const [updatedlist,setUpdatelist]=useState(false);
     // const [increase,setIncrease]=useState('');
     // const [decrease,setdeccrease]=useState('');
-
-    const purl="http://localhost:5511/product/";
+  const url=process.env.REACT_APP_API_URL;
+    const purl=`${url}/product/`;
 
     useEffect(()=>{
         setCid(props.data);
@@ -31,7 +31,7 @@ export default function ProductList(props){
             setShowplist(res.data);
         }).catch(err=> toast.error(err));
 
-        axios.get("http://localhost:5511/productcatg/showproductcatg").then((res)=>setPcatglist(res.data)).catch(err=>toast.error(err));
+        axios.get(`${url}/productcatg/showproductcatg`).then((res)=>setPcatglist(res.data)).catch(err=>toast.error(err));
 
         const session=sessionStorage.getItem("Usersession")||localStorage.getItem("Usersession");
         if (session) {

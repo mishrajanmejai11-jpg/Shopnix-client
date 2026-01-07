@@ -13,19 +13,20 @@ import axios from "axios";
         VPicName: null,
         previewImage: ""
     });
+        const url=process.env.REACT_APP_API_URL;
 
     useEffect(() => {
         fetchVenders();
     }, []);
 
     const fetchVenders = () => {
-        axios.get("http://localhost:5511/vender/getallvender")
+        axios.get(`${url}/vender/getallvender`)
             .then(res => setVenderList(res.data))
             .catch(err => alert(err));
     };
     const toggleStatus = (vid, currentStatus) => {
         const newStatus = currentStatus === true ? false : true;
-        axios.put(`http://localhost:5511/vender/vendermanage/${vid}/${newStatus}`)
+        axios.put(`${url}/vender/vendermanage/${vid}/${newStatus}`)
             .then(res => {
                 alert(res.data);
                 fetchVenders();
@@ -41,9 +42,8 @@ import axios from "axios";
             VContact: vender.Vcontact,
             VEmail: vender.Vemail,
             VPicName: null,
-            previewImage: vender.Vpicname
-                ? `http://localhost:5511/vender/getimage/${vender.Vpicname}`
-                : ""
+            previewImage: vender.Vpicname,
+               
         });
         setShowModal(true);
     };
@@ -81,7 +81,7 @@ import axios from "axios";
         formData.append("Vemail", editForm.VEmail);
         if (editForm.VPicName) formData.append("file", editForm.VPicName);
 
-        axios.put(`http://localhost:5511/vender/update/${selectedVender.Vuserid}`, formData)
+        axios.put(`${url}/vender/update/${selectedVender.Vuserid}`, formData)
             .then(res => {
                 alert(res.data.message);
                 setShowModal(false);
@@ -113,7 +113,7 @@ import axios from "axios";
                                 <td>
                                     {item.Vpicname && (
                                         <img
-                                            src={`http://localhost:5511/vender/getimage/${item.Vpicname}`}
+                                            src={`${url}/vender/getimage/${item.Vpicname}`}
                                             alt="vendor" width="50"
                                         />
                                     )}

@@ -12,14 +12,16 @@ function ShowBills(){
     const[selectedCustomer, setSelectedCustomer]=useState("");
     const[loadingPDF, setLoadingPDF]=useState(false);
 
+        const url=process.env.REACT_APP_API_URL;
+
     //pagination
     const[currentPage, setCurrentPage]=useState(1);
     const billsPerPage= 3;
 
     useEffect(()=>{
-        axios.get("http://localhost:5511/customer/getcustomer").then((res)=> setCustList(res.data))
+        axios.get(`${url}/customer/getcustomer`).then((res)=> setCustList(res.data))
         .catch((err)=> toast.error(err));
-        axios.get("http://localhost:5511/product/showproduct").then((res)=> setPList(res.data))
+        axios.get(`${url}/product/showproduct`).then((res)=> setPList(res.data))
         .catch((err)=> toast.error(err));
     },[]);
 
@@ -27,7 +29,7 @@ function ShowBills(){
         const cid=evt.target.value;
         setSelectedCustomer(cid);
 
-        axios.get(`http://localhost:5511/bill/billshow/${cid}`).then((res)=>{
+        axios.get(`${url}/bill/billshow/${cid}`).then((res)=>{
             const bills=res.data;
             const mergedBills=[];
             let totalSum=0;
@@ -129,7 +131,7 @@ function ShowBills(){
 
                 for(let i=0;i<bill.products.length;i++){
                     const prod=bill.products[i];
-                    const imgUrl=`http://localhost:5511/product/getimage/${prod.pic}`;
+                    const imgUrl=custlist.Cpicname;
                     const base64Img=await getBase64Image(imgUrl);
                     if(base64Img) imageMap[i]=base64Img;
 
@@ -231,7 +233,7 @@ function ShowBills(){
                                             <td>{prod.price.toFixed(2)}</td>
                                             <td>{prod.subtotal.toFixed(2)}</td>
                                             <td>
-                                                <img src={`http://localhost:5511/product/getimage/${prod.pic}`}
+                                                <img src={prod.pic}
                                                 height="80" width="80" alt={prod.pname}/> </td>
                                         </tr>
                                     ))}

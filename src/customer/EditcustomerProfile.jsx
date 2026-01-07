@@ -11,19 +11,20 @@ export default function EditCustomerProfile({user,onClose,onUpdate}){
     const [ctList,setCtList]=useState([]);
     const [error,setError]=useState({});
 
-    const url="http://localhost:5511/customer/"
+    const url=`${apiurl}/customer/`
+    const apiurl=process.env.REACT_APP_API_URL;
 
     useEffect(()=>{
         axios.get(`${url}getcustomerdetails/${user.Cid}`).then((res)=>{
             setFormData(res.data);
             if (res.data.Stid) {
-                axios.get(`http://localhost:5511/city/showcitybystate/${res.data.Stid}`).then((ct)=>{
+                axios.get(`${apiurl}/city/showcitybystate/${res.data.Stid}`).then((ct)=>{
                     setCtList(ct.data)
                 }).catch((err)=>toast.error(err));
             }
         }).catch(err=>toast.error(err));
 
-        axios.get(`http://localhost:5511/state/show`).then((res)=>{
+        axios.get(`${apiurl}/state/show`).then((res)=>{
             setStList(res.data);
         }).catch(err=>toast.error(err));
     },[user.Cid]);
@@ -63,7 +64,7 @@ export default function EditCustomerProfile({user,onClose,onUpdate}){
         const stid=Number(e.target.value);
         console.log(stid);
         setFormData({...formData,Stid:stid,Ctid:""});
-        axios.get(`http://localhost:5511/city/showcitybystate/${stid}`).then((res)=>{setCtList(res.data); console.log(res.data)}).catch(err=> toast.error(err));
+        axios.get(`${apiurl}/city/showcitybystate/${stid}`).then((res)=>{setCtList(res.data); console.log(res.data)}).catch(err=> toast.error(err));
 
     };
 

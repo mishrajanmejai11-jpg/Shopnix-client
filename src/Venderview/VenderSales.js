@@ -28,6 +28,7 @@ Chartjs.register(BarElement,CategoryScale,LinearScale,Tooltip,Legend);
     const [popupVisible,setPopupVisible] = useState(false);
     const [totalProductSold,setTotalProductSold] = useState(0);
     const chartRef = useRef(null);
+    const apiurl=process.env.REACT_APP_API_URL;
 
     // FETCH SALES DATA
 
@@ -39,7 +40,7 @@ Chartjs.register(BarElement,CategoryScale,LinearScale,Tooltip,Legend);
             try
             {
                 const res = await axios.get(
-                    `http://localhost:5511/sales/vender/${vender.Vid}`
+                    `${apiurl}/sales/vender/${vender.Vid}`
                 );
                 setSales(res.data.sales || []);
             }
@@ -401,7 +402,7 @@ doc.save("sales-report.pdf");
                                     return (
                                         <>
                                         <div className="venderpopupheader">
-                                            <img src={`http://localhost:5511/product/getimage/${product?.ppicname || "default.png"}`} alt={selectedProduct}
+                                            <img src={`${apiurl}/product/getimage/${product?.ppicname || "default.png"}`} alt={selectedProduct}
                                             style={{
                                                 width:"70px",
                                                 height:"70px",

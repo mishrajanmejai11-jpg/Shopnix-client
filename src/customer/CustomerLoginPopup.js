@@ -12,6 +12,8 @@
              const [isChecked,setIsChecked] = useState(false);
              const [loading,setLoading] = useState(false);
              const [authError,setAuthError] = useState("");
+    const url=process.env.REACT_APP_API_URL;
+
 
              useEffect(() => {
                 const myCookies = Cookies.get("auth");
@@ -29,7 +31,7 @@
                 setLoading(true);
 
                 try{
-                    const res = await axios.post("http://localhost:5511/customer/login", 
+                    const res = await axios.post(`${url}/customer/login`, 
                         {
                             Cuserid : uid,
                             Cuserpass : upass,

@@ -24,15 +24,17 @@ export default function VenderReg(){
     const [ctid,setctId]= useState("");
     const [vpincode,setVpincode]=useState('');
     const [vshopname,setVshopname]=useState('');
+    const apiurl=process.env.REACT_APP_API_URL;
+
 
     useEffect(()=>{
         fetchVenderList();
-                axios.get("http://localhost:5511/state/show").then((res)=> setstList(res.data)).catch((err)=> toast.error(err));
+                axios.get(`${apiurl}/state/show`).then((res)=> setstList(res.data)).catch((err)=> toast.error(err));
         
     },[]);
     const fetchVenderList= async()=>{
         try {
-            const res=await axios.get('http://localhost:5511/vender/getallvender/');
+            const res=await axios.get(`${apiurl}/vender/getallvender/`);
             setVenderList(res.data);
             setVid(res.data.length+1);
         } catch (error) {
@@ -43,7 +45,7 @@ export default function VenderReg(){
         setStId(e.target.value);
         let stid=e.target.value;
         console.log('stid',stid)
-        axios.get('http://localhost:5511/city/showcitybystate/'+stid).then((res)=>setCtList(res.data)).catch(err=> toast.error(err));
+        axios.get(`${apiurl}/city/showcitybystate/`+stid).then((res)=>setCtList(res.data)).catch(err=> toast.error(err));
     }
 
     const Validateform=()=>{
@@ -130,7 +132,7 @@ export default function VenderReg(){
                   formData.append("Status",false);
                   formData.append("file",image.data)
                 //   alert("rgisetr api call")
-                  axios.post("http://localhost:5511/vender/register/",formData,{headers:{"Content-Type":"multipart/form-data"}}).then((res)=>{
+                  axios.post(`${apiurl}/vender/register/`,formData,{headers:{"Content-Type":"multipart/form-data"}}).then((res)=>{
                     toast.success(res.data);
                     fetchVenderList();
                   }).catch((err)=>{
@@ -143,7 +145,7 @@ export default function VenderReg(){
         let formdata=new FormData();
         formdata.append('file',image.data);
         try {
-            const res=await fetch("http://localhost:5511/vender/savevenderimage",{method:"POST",body:formdata,});
+            const res=await fetch(`${apiurl}/vender/savevenderimage`,{method:"POST",body:formdata,});
             if (res.data.message) {
                 setStatus(true);
                 toast.success("Image Upload Successfully");

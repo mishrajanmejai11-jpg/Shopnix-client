@@ -13,6 +13,8 @@ export default function StateMgt(){
     // const [isupdatename,setUpdatename]=useState(false);
     // const [isupdatestatus,setUdatestatus]=useState(false);
     const [check,setCheck]=useState("");
+        const url=process.env.REACT_APP_API_URL;
+
 
     const handleStid=(e)=>{
         setStid(e.target.value);
@@ -40,7 +42,7 @@ export default function StateMgt(){
   
     }
       const ShowBtn=()=>{
-        axios.get("http://localhost:5511/state/getall").then((res)=>{
+        axios.get(`${url}/state/getall`).then((res)=>{
             setStList(res.data);
         }).catch((err)=>{
             toast.error(err);
@@ -58,7 +60,7 @@ export default function StateMgt(){
     }
 
     const addNewBtn=()=>{
-        axios.get("http://localhost:5511/state/getall").then((res)=>{
+        axios.get(`${url}/state/getall`).then((res)=>{
             setStid(res.data.length+1);
             setStatus(true);
         }).catch((err)=>{
@@ -78,7 +80,7 @@ export default function StateMgt(){
             }
         }
         if (fvalue===true) {
-            axios.get("http://localhost:5511/state/searchbyname/"+stname).then((res)=>{
+            axios.get(`${url}/state/searchbyname/`+stname).then((res)=>{
                 if (res.data.stname!==undefined) {
                     toast.warning("State Name Already Exist");
                 }else{
@@ -87,7 +89,7 @@ export default function StateMgt(){
                         stname:stname,
                         status:status,
                     }
-                    axios.post("http://localhost:5511/state/save/",obj).then((res)=>{
+                    axios.post(`${url}/state/save/`,obj).then((res)=>{
                         toast.success(res.data);
                         setStid('');
                         setStName('');
@@ -106,7 +108,7 @@ export default function StateMgt(){
   
     const SearchedBtn=()=>{
         if (stid!==undefined&& stid!=="") {
-            axios.get("http://localhost:5511/state/search/"+stid).then((res)=>{
+            axios.get(`${url}/state/search/`+stid).then((res)=>{
                 if (res.data.stid!==undefined) {
                     setStid(res.data.stid);
                     setStName(res.data.stname);
@@ -118,7 +120,7 @@ export default function StateMgt(){
         }
 
         if (stname!==undefined&&stname!=='') {
-            axios.get("http://localhost:5511/state/searchbyname/"+stname).then((res)=>{
+            axios.get(`${url}/state/searchbyname/`+stname).then((res)=>{
                 if (res.data.stid!==undefined) {
                     setStid(res.data.stid);
                     setStName(res.data.stname);
@@ -148,7 +150,7 @@ export default function StateMgt(){
                         stname:stname,
                         status:status,
                     }
-            axios.put('http://localhost:5511/state/update',obj).then((res)=>{
+            axios.put(`${url}/state/update`,obj).then((res)=>{
                 toast.success(res.data);
                 setStid('');
                 setStName('');
@@ -162,7 +164,7 @@ export default function StateMgt(){
 
     const DeleteBtn=()=>{
         if (stid!==undefined&&stid!=="") {
-            axios.delete('http://localhost:5511/state/delete/'+stid).then((res)=>{
+            axios.delete(`${url}/state/delete/`+stid).then((res)=>{
                 toast.success(res.data);
                 ShowBtn();
             }).catch((err)=>{toast.error(err)});

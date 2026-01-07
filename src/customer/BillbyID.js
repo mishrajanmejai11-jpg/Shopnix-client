@@ -17,16 +17,16 @@ import OrderTrackingPerBillId from "./OrderTrackingPerbillid";
      const [loading,setLoading] = useState(true);
      const [isshowordertracking,setIsShowOrderTracking] = useState(false);
 
-
-
+  const url=process.env.REACT_APP_API_URL;
+     
      // LOAD BILL IDS, PRODUCTS, AND BILL DATES
 
      useEffect(() => {
         setLoading(true);
 
-        Promise.all([axios.get(`http://localhost:5511/bill/billshowbillid/${props.data}`),
-            axios.get("http://localhost:5511/product/showproduct"),
-            axios.get(`http://localhost:5511/bill/billshowbilldates/${props.data}`),
+        Promise.all([axios.get(`${url}/bill/billshowbillid/${props.data}`),
+            axios.get(`${url}/product/showproduct`),
+            axios.get(`${url}/bill/billshowbilldates/${props.data}`),
         ]).then(([billRes,prodRes, dateRes]) => {
              setBillIdList(billRes.data);
              setPlist(prodRes.data);
@@ -45,7 +45,7 @@ import OrderTrackingPerBillId from "./OrderTrackingPerbillid";
 
         try
         {
-            const res = await axios.get(`http://localhost:5511/bill/showbillbyid/${selectedId}`);
+            const res = await axios.get(`${url}/bill/showbillbyid/${selectedId}`);
             setBillDetailsList(res.data);
         } catch(err)
         {
@@ -63,7 +63,7 @@ import OrderTrackingPerBillId from "./OrderTrackingPerbillid";
 
 
         try{
-            const res = await axios.get(`http://localhost:5511/bill/showbillbydate/${selectDate}`);
+            const res = await axios.get(`${url}/bill/showbillbydate/${selectDate}`);
 
             setBillDetailsList(res.data);
         } catch(err)
@@ -77,7 +77,7 @@ import OrderTrackingPerBillId from "./OrderTrackingPerbillid";
 
           const fetchCustomerDetails = async () => {
             try{
-         const res = await axios.get( `http://localhost:5511/customer/getcustomerdetails/${props.data}`);
+         const res = await axios.get( `${url}/customer/getcustomerdetails/${props.data}`);
 
                     setCustDetails(res.data);
                     return res.data;
@@ -187,7 +187,7 @@ import OrderTrackingPerBillId from "./OrderTrackingPerbillid";
 
                     if(item.ppicname)
                     {
-                        const imgUrl = `http://localhost:5511/product/getproductimage/${item.ppicname}`;
+                        const imgUrl = `${url}/product/getproductimage/${item.ppicname}`;
                         const base64Img = await toDataURL(imgUrl);
                         doc.addImage(base64Img, "JPEG", 160, y -6 , 20 ,20);
                     }
@@ -316,7 +316,7 @@ import OrderTrackingPerBillId from "./OrderTrackingPerbillid";
                                     <td>{bitem.amount}</td>
                                     <td>
                                         <img
-                                            src={`http://localhost:5511/product/getproductimage/${bitem.ppicname}`}
+                                            src={bitem.ppicname}
                                             height="80"
                                             width="80"
                                             alt="product"

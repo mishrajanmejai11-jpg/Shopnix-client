@@ -15,7 +15,7 @@ const STATUS_FLOW = [
 function OrderTrackingPerBillId({BillId})
 {
   const [order,setOrder] = useState(null);
-
+  const url=process.env.REACT_APP_API_URL;
   useEffect(() => {
     if(BillId)
     {
@@ -25,7 +25,7 @@ function OrderTrackingPerBillId({BillId})
 
   const loadOrder = async (billid) => {
     try{
-      const res = await axios.get(`http://localhost:5511/bill/trackorder/${billid}`);
+      const res = await axios.get(`${url}/bill/trackorder/${billid}`);
       setOrder(res.data);
     } catch(err)
     {

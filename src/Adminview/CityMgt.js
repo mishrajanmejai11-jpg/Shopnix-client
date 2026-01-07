@@ -12,6 +12,8 @@ export default function CityMgt(){
     const [ctlist,setCtList]=useState([]);
     const [stlist,setSlist]=useState([]);
         const [check,setCheck]=useState("");
+
+        const url=process.env.REACT_APP_API_URL;
     
 
     var statename="";
@@ -47,21 +49,21 @@ export default function CityMgt(){
     // }
 
     useEffect( () => {
-        axios.get('http://localhost:5511/state/show').then((res)=>{
+        axios.get(`${url}/state/show`).then((res)=>{
             setSlist(res.data);
         }).catch((err)=>{
             toast.error(err);
         })
     })
          const handleShowBtn= async () => {
-        await axios.get("http://localhost:5511/city/getall").then((res)=>{
+        await axios.get(`${url}/city/getall`).then((res)=>{
             setCtList(res.data);
         }).catch((err)=>{
             toast.error(err);
         });
     }
     const addNewBtn=async () => {
-        await axios.get('http://localhost:5511/city/getall').then((res)=>{
+        await axios.get(`${url}/city/getall`).then((res)=>{
             setCtid(res.data.length+1);
             setStatus(true);
         }).catch((err)=>{
@@ -81,7 +83,7 @@ export default function CityMgt(){
        }
 
        if (fvalue===true) {
-          await axios.get('http://localhost:5511/city/searchbyname/'+ctname).then((res)=>{
+          await axios.get(`${url}/city/searchbyname/`+ctname).then((res)=>{
             if (res.data.ctname!==undefined) {
                 toast.warning('City Name Already Exist');
             }else{
@@ -91,7 +93,7 @@ export default function CityMgt(){
                     stid:stid,
                     status:status
                 }
-                 axios.post("http://localhost:5511/city/save/",obj).then((res)=>{
+                 axios.post(`${url}/city/save/`,obj).then((res)=>{
                     toast.success(res.data);
                     setCtid('');
                     setCtname('');
@@ -112,7 +114,7 @@ export default function CityMgt(){
 
     const handleSearchBtn= async () => {
         if (ctid!==undefined&&ctid!=="") {
-        await  axios.get('http://localhost:5511/city/search/'+ctid).then((res)=>{
+        await  axios.get(`${url}/city/search/`+ctid).then((res)=>{
             if (res.data.stid!==undefined) {
                 setCtid(res.data.ctid);
                 setCtname(res.data.ctname);
@@ -126,7 +128,7 @@ export default function CityMgt(){
         });
         }
         if (ctname!==undefined&& ctname!=="") {
-            axios.get("http://localhost:5511/city/searchbyname/"+ctname).then((res)=>{
+            axios.get(`${url}/city/searchbyname/`+ctname).then((res)=>{
                 if (res.data.stid!==undefined) {
                     setCtid(res.data.ctid);
                     setCtname(res.data.ctname);
@@ -159,7 +161,7 @@ export default function CityMgt(){
                     stid:stid,
                     status:status
                 }
-                await axios.put("http://localhost:5511/city/update/",obj).then((res)=>{
+                await axios.put(`${url}/city/update/`,obj).then((res)=>{
                     toast.success(res.data);
                     setCtid('');
                     setCtname('');
@@ -175,7 +177,7 @@ export default function CityMgt(){
 
     const handleDeleteBtn=()=>{
         if (ctid!==undefined&&ctid!=="") {
-            axios.delete("http://localhost:5511/city/delete/"+ctid).then((res)=>{
+            axios.delete(`${url}/city/delete/`+ctid).then((res)=>{
                 toast.success(res.data);
             }).catch((err)=>{
                 toast.error(err)

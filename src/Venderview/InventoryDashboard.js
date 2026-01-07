@@ -19,6 +19,7 @@ export default function InventoryDashboard({ vid}) {
     const [editDelta, setEditDelta] = useState(0);
     const[editMode,setEditMode] = useState("inc");
     const[actionLoading,setActionLoading] = useState(false);
+    const apiurl=process.env.REACT_APP_API_URL;
 
     // -----------------FETCH INVENTROY--------------
 
@@ -26,7 +27,7 @@ export default function InventoryDashboard({ vid}) {
         setLoading(true);
         setError(null);
         try{
-            const res = await fetch( `http://localhost:5511/inventory/inventorybyvendor/${vid}`);
+            const res = await fetch( `${apiurl}/inventory/inventorybyvendor/${vid}`);
             if(!res.ok) throw new Error();
             const data = await res.json();
             setItems(Array.isArray(data) ? data : []);
@@ -52,7 +53,7 @@ useEffect(() => {
 useEffect(() => {
     async function fetchProducts() {
         try{
-            const res = await fetch("http://localhost:5511/product/showproduct");
+            const res = await fetch(`${apiurl}/product/showproduct`);
             if(!res.ok) return;
             const products = await res.json();
             const map = {};
@@ -108,7 +109,7 @@ async function submitEdit(){
         editMode === "set"?{pid:editing.pid, vid: editing.vid, mode:"set", stock:Number(editDelta) }
             :{pid:editing.pid, vid: editing.vid, mode:"inc", delta:Number(editDelta) }
 
-        const res = await fetch("http://localhost:5511/inventory/managestock" , {
+        const res = await fetch(`${apiurl}/inventory/managestock` , {
             method : "POST",
             headers: {"Content-Type": "application/json"},
             body: JSON.stringify(payload),
@@ -133,7 +134,7 @@ async function submitEdit(){
     async function doDelete(inv) {
         if(!window.confirm("delete inventory permanently")) return;
         try{
-            await fetch(`http://localhost:5511/inventory/deletestock/${inv.pid}/vendor/${inv.vid}`,
+            await fetch(`${apiurl}/inventory/deletestock/${inv.pid}/vendor/${inv.vid}`,
                 {mehtod : "DELETE"}
             );
 

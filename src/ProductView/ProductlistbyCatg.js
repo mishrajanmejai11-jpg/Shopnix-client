@@ -19,8 +19,8 @@ export default function ProductListbyCatg({id,onback}){
     const [showplist,setShowplist]=useState([]);
     const [updatedlist,setUpdatelist]=useState(false);
     const [catgid,setCatgid]=useState(id);
-    const ProUrl="http://localhost:5511/product/";
-
+    const ProUrl=`${url}/product/`;
+   const url=process.env.REACT_APP_API_URL;
     useEffect(()=>{
         axios.get(`${ProUrl}showproductbycatg/${catgid}`).then((res)=>{
             setPlist(res.data.filter(product=>product.status===true)||[]);
@@ -30,7 +30,7 @@ export default function ProductListbyCatg({id,onback}){
 
         }).catch(err=> toast.error(err));
 
-        axios.get("http://localhost:5511/productcatg/showproductcatg").then((res)=>setPcgatList(res.data)).catch(err=>toast.error(err));
+        axios.get(`${url}/productcatg/showproductcatg`).then((res)=>setPcgatList(res.data)).catch(err=>toast.error(err));
         const session=sessionStorage.getItem("Usersession")||localStorage.getItem("Usersession");
         if (session) {
             const obj=JSON.parse(session);
@@ -243,7 +243,7 @@ export default function ProductListbyCatg({id,onback}){
                 <div className="customer-info">
                     {customerSession?(
                         <>
-                        <img src={`http://localhost:5511/customer/getimage/${customerSession.Cpicname}`} alt={customerSession.Cpicname} style={{borderRadius:50,height:150,width:150}}></img>
+                        <img src={customerSession.Cpicname} alt={customerSession.Cpicname} style={{borderRadius:50,height:150,width:150}}></img>
                         <span>{customerSession.Cfname}</span>
                         <span style={{marginLeft:"15px",fontWeight:"bold"}}>{itemcount}</span>
                         <button onClick={handleCheckOutBtn}>Checkout</button>
@@ -324,7 +324,7 @@ export default function ProductListbyCatg({id,onback}){
                                     const Qty=quantities[item.pid]||0;
                                     return(
                                         <div className="product-card" key={item.pid}>
-                                            <img className="product-img" src={`${ProUrl}getimage/${item.ppicname}`} alt={item.ppicname}></img>
+                                            <img className="product-img" src={item.ppicname} alt={item.ppicname}></img>
                                             <h5>Discount OFFER -{`${item.discount}%`}</h5>
                                             <h4>{item.pname}</h4>
                                             <p>

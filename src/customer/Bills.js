@@ -11,7 +11,7 @@ export default function Bill({data,onBack,onPaymentSuccess,onUpdatecart,onRemove
     const [ispaymentDone,setPaymentDone]=useState(false);
     const [billid,setBillid]=useState("");
     const [isProcessing,setProcessing]=useState(false);
-
+    const url=process.env.REACT_APP_API_URL;
     const getCurrentDate=()=>{
         const d=new Date();
         return `${d.getDate()}-${d.getMonth()+1}-${d.getFullYear()}`;
@@ -35,7 +35,7 @@ export default function Bill({data,onBack,onPaymentSuccess,onUpdatecart,onRemove
         });
         setQuantities(qtyobj);
         if (data.cid) {
-            axios.get(`http://localhost:5511/customer/getcustomerdetails/${data.cid}`).then(res=>{
+            axios.get(`${url}/customer/getcustomerdetails/${data.cid}`).then(res=>{
                 const body=res.data||{};
                 setCustomer({name:body.Customername||body.name||"",address:body.Caddress||body.address||"",contact:body.Ccontact||body.contact||"",email:body.Cemail||"mishrajanmejai11@gmail"});
             }).catch(()=>{
@@ -82,7 +82,7 @@ export default function Bill({data,onBack,onPaymentSuccess,onUpdatecart,onRemove
 
     const saveBill=useCallback(async () => {
         if (!items.length)return null;
-        const res=await axios.get("http://localhost:5511/bill/getbillid");
+        const res=await axios.get(`${url}/bill/getbillid`);
         const nextId=parseInt(res.data?.[0]?.billid||0,10)+1;
         setBillid(nextId);
         const today=getCurrentDate();
@@ -92,9 +92,9 @@ export default function Bill({data,onBack,onPaymentSuccess,onUpdatecart,onRemove
          const qty=quantities[item.pid]||1;
          const Pid=item.pid;
          const obj={billid:nextId,billdate:today,Cid:data.cid,Pid,qty};
-         await axios.post("http://localhost:5511/bill/billsave",obj).then((res)=>toast.success(res.data.bill)).catch(err=>toast.error(err))
+         await axios.post(`${url}/bill/billsave`,obj).then((res)=>toast.success(res.data.bill)).catch(err=>toast.error(err))
          const sale ={venderId:item.vid,productId:Pid,quantity:qty,totalPrice:item.oprice*qty,billid:nextId,date:today,}
-         await axios.post("http://localhost:5511/sales/add",sale);
+         await axios.post(`${url}/sales/add`,sale);
         }
         return nextId;
     },[items,quantities,data?.cid]);
@@ -105,12 +105,12 @@ export default function Bill({data,onBack,onPaymentSuccess,onUpdatecart,onRemove
         if (!puchaseitem|| puchaseitem.length===0) {
             return {succes:true,message:"no items to purchase"};}
 
-            // const base="http://localhost:5511";
+            // const base="${url}";
             // const endpoint="/intventory/purchase";
             let lastError=null;
             // for (const ep of endpoint){
                 try {
-                    const res=await axios.post("http://localhost:5511/inventory/purchase",{items:puchaseitem});
+                    const res=await axios.post(`${url}/inventory/purchase`,{items:puchaseitem});
                     // alert(res.data.message);
                     // const res=await axios.post(base+ep,{items:puchaseitem});
                     if (res&&(res.data?.success||res.status===200)) {
@@ -158,7 +158,7 @@ export default function Bill({data,onBack,onPaymentSuccess,onUpdatecart,onRemove
             return;
         }
             const amountPaisa=Math.round(totalAmount*100);
-            const order=await axios.post(`http://localhost:5511/payment/orders/${amountPaisa}`);
+            const order=await axios.post(`${url}/payment/orders/${amountPaisa}`);
             const {id:order_id,amount,currency}=order.data;
 
             const option={
@@ -171,7 +171,7 @@ export default function Bill({data,onBack,onPaymentSuccess,onUpdatecart,onRemove
                 order_id,
                 handler:async function (response) {
                     try {
-                        await axios.post("http://localhost:5511/paymentdetail/paymentdetailsave",{
+                        await axios.post(`${url}/paymentdetail/paymentdetailsave`,{
                             orderCreationId:order_id,
                             razorpayPaymentId:response.razorpay_payment_id,
                             razorpayOrderId:response.razorpay_order_id,

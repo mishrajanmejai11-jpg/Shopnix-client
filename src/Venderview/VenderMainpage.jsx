@@ -9,6 +9,8 @@ export default function VenderMainPage(){
      
     let [isRegister,setIsregister]=useState(false);
 
+
+
     return(
         <>
         <header className="vender_header_container">

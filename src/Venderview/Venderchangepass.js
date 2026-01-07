@@ -14,6 +14,7 @@ export default function Venderchangepass({data, onClose})
     const [message,setMessage]=useState(null);
     const [error,setError]=useState(null);
     const [showpassword,setShowpassword]=useState({old:false,new:false,confirm:false});
+    const apiurl=process.env.REACT_APP_API_URL;
 
     //auto clear message after 4s
     useEffect(()=>{
@@ -57,7 +58,7 @@ export default function Venderchangepass({data, onClose})
 
         setLoading(true);
         try {
-            const res=await axios.post("http://localhost:5511/vender/changepassword",{Vuserid,Oldpassword:oldpassword,Newpassword:newpassword});
+            const res=await axios.post(`${apiurl}/vender/changepassword`,{Vuserid,Oldpassword:oldpassword,Newpassword:newpassword});
             setMessage(res.data?.message||"Password Change Successfully!");
             setOldpassword('');
             setNewpassword('');

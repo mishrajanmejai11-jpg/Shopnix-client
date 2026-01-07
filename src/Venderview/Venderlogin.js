@@ -14,6 +14,8 @@ export default function VenderLogin(){
     const [rember,setRember]=useState(false);
     const [vender,setVender]=useState(null);
     const [showforgot,setShowforgot]=useState(false);
+    const apiurl=process.env.REACT_APP_API_URL;
+
 
     // const navigate=useNavigate();
 
@@ -35,7 +37,7 @@ export default function VenderLogin(){
     const handleLogin=async () => {
         try {
            // console.log("vuid",vuid);
-            const res=await axios.post("http://localhost:5511/vender/login",{vuid,vupass});
+            const res=await axios.post(`${apiurl}/vender/login`,{vuid,vupass});
             // toast.warning("response",res.data);
           //  console.log('data',res);
         //   alert("status"+res.data.Status)

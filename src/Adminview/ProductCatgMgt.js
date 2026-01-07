@@ -12,11 +12,13 @@ export default function ProductCatgMgt(){
     const [pcatgList,setPcatgList]=useState([]);
     const [isEditMode,setIsEditMode]=useState(false);
 
+        const url=process.env.REACT_APP_API_URL;
+
     // useEffect(()=>{
     //     fetchCategoryList();
     // },[]);
     const fetchCategoryList=()=>{
-        axios.get("http://localhost:5511/productcatg/showproductcatg").then((res)=>{
+        axios.get(`${url}/productcatg/showproductcatg`).then((res)=>{
             setPcatgList(res.data);
             if (!isEditMode) {
                 setPcatgid(res.data.length+1);
@@ -31,7 +33,7 @@ export default function ProductCatgMgt(){
             toast.info('Category Name Cannot be Empty');
             return;
         }
-        axios.post(`http://localhost:5511/productcatg/addproductcatg/${pcatgid}/${pcatgname}`).then((res)=>{
+        axios.post(`${url}/productcatg/addproductcatg/${pcatgid}/${pcatgname}`).then((res)=>{
             toast.success(res.data);
             setPcatgname('');
             setIsEditMode(false);
@@ -44,7 +46,7 @@ export default function ProductCatgMgt(){
             toast.warning('category name cannot be empty');
             return;
         }
-        axios.put(`http://localhost:5511/productcatg/updateproductcatg/${pcatgid}/${pcatgname}`).then((res)=>{
+        axios.put(`${url}/productcatg/updateproductcatg/${pcatgid}/${pcatgname}`).then((res)=>{
             toast.success(res.data);
             setPcatgname('');
             setIsEditMode(false);

@@ -20,7 +20,7 @@ export default function CustomerLogin(){
     const [otp,setOtp]=useState('');
     const [newPassword,setNewPassword]=useState('');
     const [forgetmessage,setForgetmessage]=useState('');
-
+const url=process.env.REACT_APP_API_URL;
            const navigate=useNavigate();  
     
 
@@ -56,7 +56,7 @@ export default function CustomerLogin(){
         if(!Validateform())return;
         setAuthError(''); // reset previous auth error
 
-        axios.post("http://localhost:5511/customer/login",{Cuserid:uid, Cuserpass:upass}).then((res)=>{
+        axios.post(`${url}/customer/login`,{Cuserid:uid, Cuserpass:upass}).then((res)=>{
            if (res.data.Cuserid) {
             if (res.data.Status===false) {
                 toast.warning("User Not Active By Admin, Please Wait for Verfied");
@@ -105,7 +105,7 @@ export default function CustomerLogin(){
         if (!forgetemail) {
             setForgetmessage("Please Enter your Customer ID"); return;
         }
-        axios.post("http://localhost:5511/customer/forgetpass/sendotp",{Cuserid:forgetemail,}).then((res)=>{
+        axios.post(`${url}/customer/forgetpass/sendotp`,{Cuserid:forgetemail,}).then((res)=>{
             setForgetmessage(res.data.message||"OTP sent to your email");
             setForgetstep(2);
         }).catch((err)=>{
@@ -120,7 +120,7 @@ export default function CustomerLogin(){
         if (!otp &&!newPassword) {
             setForgetmessage("Please Enter OTP and New Password"); return;
         }
-        axios.post("http://localhost:5511/customer/forgetpass/verifyotp",{Cuserid:forgetemail,otp:otp,Newpassword:newPassword}).then((res)=>{
+        axios.post(`${url}/customer/forgetpass/verifyotp`,{Cuserid:forgetemail,otp:otp,Newpassword:newPassword}).then((res)=>{
             setForgetmessage(res.data.message||"Password reset Successfully");
             setForgetstep(1);
             setShowforget(false);

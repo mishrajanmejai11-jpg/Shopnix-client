@@ -17,21 +17,21 @@ export default function OrderTracking({Cuserid,Onclose})
     const [billIds,setBillIds]=useState([]);
     const [billid,setBillid] = useState("");
     const [order,setOrder] = useState(null);
-
+  const url=process.env.REACT_APP_API_URL;
     const cid = Cuserid;
     console.log("cid",cid);
     // LOAD BILL NUMBERS OF LOGGED-IN CUSTOMER
      useEffect(() => {
         if(cid)
         {
-            axios.get(`http://localhost:5511/bill/billshowbillid/${cid}`).then((res) => setBillIds(res.data)).catch((err) => console.log(err));
+            axios.get(`${url}/bill/billshowbillid/${cid}`).then((res) => setBillIds(res.data)).catch((err) => console.log(err));
         }
      },[cid]);
 
      // LOAD FULL ORDER DETAILS
 
      const loadOrder = async (billid) => {
-        const res = await axios.get(`http://localhost:5511/bill/trackorder/${billid}`);
+        const res = await axios.get(`${url}/bill/trackorder/${billid}`);
 
         setOrder(res.data);
      };

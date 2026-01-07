@@ -18,7 +18,8 @@ export default function ProductListforMainpage(){
     const [showBill,setShowbill]=useState(false);
     const [showplist,setShowplist]=useState([]);
     const [updatedlist,setUpdatelist]=useState(false);
-    const ProUrl="http://localhost:5511/product/";
+    const url=process.env.REACT_APP_API_URL;
+    const ProUrl=`${url}/product/`;
 
     useEffect(()=>{
         axios.get(`${ProUrl}showproduct`).then((res)=>{
@@ -29,7 +30,7 @@ export default function ProductListforMainpage(){
 
         }).catch(err=> toast.error(err));
 
-        axios.get("http://localhost:5511/productcatg/showproductcatg").then((res)=>setPcgatList(res.data)).catch(err=>toast.error(err));
+        axios.get(`${url}/productcatg/showproductcatg`).then((res)=>setPcgatList(res.data)).catch(err=>toast.error(err));
         const session=sessionStorage.getItem("Usersession")||localStorage.getItem("Usersession");
         if (session) {
             const obj=JSON.parse(session);
@@ -241,7 +242,7 @@ export default function ProductListforMainpage(){
                 <div className="customer-info">
                     {customerSession?(
                         <>
-                        <img src={`http://localhost:5511/customer/getimage/${customerSession.Cpicname}`} alt={customerSession.Cpicname} style={{borderRadius:50,height:150,width:150}}></img>
+                        <img src={customerSession.Cpicname} alt={customerSession.Cpicname} style={{borderRadius:50,height:150,width:150}}></img>
                         <span>{customerSession.Cfname}</span>
                         <span style={{marginLeft:"15px",fontWeight:"bold"}}>{itemcount}</span>
                         <button onClick={handleCheckOutBtn}>Checkout</button>

@@ -16,18 +16,21 @@ export default function CustomerMgt(){
     const [confirmDialog,setConfirmDialog]=useState({open:false,cid:null,currentStatus:""});
     const [loading,setLoading]=useState(false);
 
+        const url=process.env.REACT_APP_API_URL;
+
+
     //fetch customer and status
     useEffect(()=>{
-        axios.get("http://localhost:5511/customer/getcustomer").then((res)=>setCustomerList(res.data)).catch((err)=>toast.error(err));
-        axios.get("http://localhost:5511/state/show").then((res)=>setStates(res.data)).catch(err=>toast.error(err));
+        axios.get(`${url}/customer/getcustomer`).then((res)=>setCustomerList(res.data)).catch((err)=>toast.error(err));
+        axios.get(`${url}/state/show`).then((res)=>setStates(res.data)).catch(err=>toast.error(err));
     },[]);
 
     //open profile model
     const handleViewProfile=(cid)=>{
-        axios.get(`http://localhost:5511/customer/getcustomerdetails/${cid}`).then((res)=>{
+        axios.get(`${url}/customer/getcustomerdetails/${cid}`).then((res)=>{
             setSelectefCustomer(res.data);
             setFormData(res.data);
-            setPreviewImage(res.data.Cpicname?`http://localhost:5511/customer/getimage/${res.data.Cpicname}`:null);
+            setPreviewImage(res.data.Cpicname);
             if (res.data.Stid) {
                 fetchCitiesByState(res.data.Stid);
                 setOpenProfile(true);
@@ -36,7 +39,7 @@ export default function CustomerMgt(){
     };
 
     const fetchCitiesByState=(stid)=>{
-        axios.get(`http://localhost:5511/city/showcitybystate/${stid}`).then((res)=>setCities(res.data)).catch(err=> toast.error(err));
+        axios.get(`${url}/city/showcitybystate/${stid}`).then((res)=>setCities(res.data)).catch(err=> toast.error(err));
     };
     //handle form input change
 
@@ -75,7 +78,7 @@ export default function CustomerMgt(){
         }
         try {
             setLoading(true);//start spinner
-            const res=await axios.put(`http://localhost:5511/customer/update/${selectedCustomer.Cid}`,data,{headers:{"Content-Type":"multipart/form-data"}});
+            const res=await axios.put(`${url}/customer/update/${selectedCustomer.Cid}`,data,{headers:{"Content-Type":"multipart/form-data"}});
             toast.success("Profile updated Successfully");
             setCustomerList((prev)=> prev.map((c)=> c.Cid===selectedCustomer.Cid?res.data.customer:c));
             setOpenProfile(false);
@@ -97,12 +100,12 @@ export default function CustomerMgt(){
         const newStatus=currentStatus===true?false:true;
         setCustomerList((prev)=> prev.map((c)=>(c.Cid===cid?{...c,status:newStatus}:c)));
 
-        axios.get(`http://localhost:5511/customer/getcustomerdetails/${cid}`).then((res)=>{ 
+        axios.get(`${url}/customer/getcustomerdetails/${cid}`).then((res)=>{ 
             const email=res.data.Cemail;
-        axios.put(`http://localhost:5511/customer/customermanage/${cid}/${newStatus}`).then((res)=>{
+        axios.put(`${url}/customer/customermanage/${cid}/${newStatus}`).then((res)=>{
             const subject=newStatus===true?"Login Activation":"Login Deactivation";
             const message=newStatus===true?"Your ID is Activated by Admin. You can login Now": "Your ID is Inactivated by Admin. You Cannot Login";
-        // axios.post(`http://localhost:5511/emailactivation/sendemails/${email}/${subject}/${message}`); 
+        // axios.post(`${url}/emailactivation/sendemails/${email}/${subject}/${message}`); 
             
         }).catch(err=> toast.error(err));
             

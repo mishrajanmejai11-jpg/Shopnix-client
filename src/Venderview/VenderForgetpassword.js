@@ -8,6 +8,7 @@ export default function VenderForgetpassword({data,onBack}){
     const [Newpassword,setNewpassword]=useState('');
     const [step,setStep]=useState(1);
     const [visible,setVisible]=useState(false);
+    const apiurl=process.env.REACT_APP_API_URL;
 
     // if (data) {
     //     setVisible(true);
@@ -22,7 +23,7 @@ export default function VenderForgetpassword({data,onBack}){
 
     const sendOtp=async () => {
         try {
-            const res=await axios.post("http://localhost:5511/vender/sendotp",{Vuserid});
+            const res=await axios.post(`${apiurl}/vender/sendotp`,{Vuserid});
             toast.success(res.data.message);
             if(res.data.success) setStep(2);
             
@@ -34,7 +35,7 @@ export default function VenderForgetpassword({data,onBack}){
 
     const resetPassword= async () => {
         try {
-            const res= await axios.post("http://localhost:5511/vender/resetpassword",{Vuserid,otp,Newpassword});
+            const res= await axios.post(`${apiurl}/vender/resetpassword`,{Vuserid,otp,Newpassword});
             alert("reset");
             toast.success(res.data.message);
             toast.success("Password is Reset successfully");

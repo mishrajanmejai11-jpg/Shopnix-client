@@ -19,12 +19,12 @@ export default function Product({data}){
     const [status,setStatus]=useState(true);
     const [discount,setDiscount]=useState("");
     const [stock,setPstock]=useState('');
-
+const apiurl=process.env.REACT_APP_API_URL;
     //---fetch categories and next product id
-    const url="http://localhost:5511/product";
+    const url=`${apiurl}/product`;
     useEffect(()=>{
         getNewpid();
-        axios.get("http://localhost:5511/productcatg/showproductcatg").then(res=> setPcatglist(res.data)).catch(err=> toast.error(err));
+        axios.get(`${apiurl}/productcatg/showproductcatg`).then(res=> setPcatglist(res.data)).catch(err=> toast.error(err));
     },[]);
     useEffect(()=>{
         fetchProduct();
@@ -81,7 +81,7 @@ export default function Product({data}){
     //create inventory func
     const Createinventory=()=>{
         let obj1={pid:pid,vid:venderid,stock}
-                axios.post("http://localhost:5511/inventory/createinventory",obj1).then(res=> {toast.success(res.message);
+                axios.post(`${apiurl}/inventory/createinventory`,obj1).then(res=> {toast.success(res.message);
                     console.log("inventory Api",res.message);
                 }).catch(err=> console.log(err))
     }
@@ -97,7 +97,7 @@ export default function Product({data}){
             }).catch((err)=>toast.error('Error',err));
         }else{
             // let obj1={pid:pid,vid:venderid}
-            //     axios.post("http://localhost:5511/inventory/createinventory",obj1).then(res=>toast.success(res.message));
+            //     axios.post("${apiurl}/inventory/createinventory",obj1).then(res=>toast.success(res.message));
              const Obj={pid,pname,pprice,oprice,ppicname,pcatgid,discount,vid:venderid,status:false};
              const formData=new FormData();
              formData.append("pid",pid);
@@ -124,7 +124,7 @@ export default function Product({data}){
     const handleEditBtn=(item)=>{
         setPid(item.pid); setPname(item.pname); setPrice(item.pprice); setOprice(item.oprice);
         setPpicname(item.ppicname); setPcatgid(item.pcatgid);
-        setImage({preview:`${url}/getimage/${item.ppicname}`,data:""});
+        setImage({preview:item.ppicname});
         setEditing(true);
     };
 
