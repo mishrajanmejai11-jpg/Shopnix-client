@@ -1,0 +1,292 @@
+/* Main Background */
+.customer-login {
+    width: 100%;
+    min-height: 100vh;
+    /* background: linear-gradient(135deg, #6a11cb, #2575fc); */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+/* Login Box */
+.main-login-page {
+    width: 100%;
+    max-width: 380px;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(12px);
+    border-radius: 18px;
+    padding: 35px 28px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.25);
+    animation: fadeIn 0.6s ease;
+}
+
+/* Heading */
+.customer-login-form h4,
+.main-login-page h4 {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 25px;
+    color: white;
+    font-weight: 600;
+}
+
+/* Input Boxes */
+.customer-login-form input,
+.main-login-page input {
+    width: 100%;
+    padding: 12px 15px;
+    margin: 10px 0;
+    border: none;
+    border-bottom: 2px solid rgba(255,255,255,0.4);
+    background: transparent;
+    color: #fff;
+    font-size: 16px;
+    outline: none;
+    transition: 0.3s;
+}
+.forget-input{
+  width: 60%;
+  
+  align-items: center;
+    padding: 12px 15px;
+    margin: 10px 0;
+    border: 2px solid turquoise;
+    border-bottom: 2px solid rgba(255,255,255,0.4);
+    color: #fff;
+    font-size: 16px;
+    outline: none;
+    transition: 0.3s;   
+}
+
+input::placeholder {
+  font-size: 14px;
+  color: black;
+}
+input:focus::placeholder {
+  font-size: 14px;
+  color:transparent;
+}
+
+
+
+.customer-login-form input:focus,
+.main-login-page input:focus {
+    border-bottom: 2px solid #fff;
+    transform: scale(1.02);
+}
+
+/* Error Text */
+.customer-login-form span {
+    font-size: 12px;
+    color: #ffb3b3;
+}
+
+/* Remember Me */
+.rember-me {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 10px 0 20px;
+    color: white;
+}
+.rember-me span {
+    font-size: 14px;
+}
+
+/* Login Button */
+.btn-login, 
+.otp-btn,
+.resetpassword-btn {
+    width: 100%;
+    padding: 12px;
+    background: #ffffff;
+    border: none;
+    border-radius: 50px;
+    font-size: 16px;
+    font-weight: 600;
+    margin-top: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-login:hover,
+.otp-btn:hover,
+.resetpassword-btn:hover {
+    background: #eaeaea;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 12px rgba(0,0,0,0.25);
+}
+
+/* Forget Password */
+.forget-password {
+    margin-top: 18px;
+    text-align: center;
+    color: #fff;
+    font-size: 14px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.forget-password:hover {
+    color: #ffecb3;
+    letter-spacing: 0.5px;
+}
+
+/* Back to login */
+.Back-login-btn {
+    margin-top: 18px;
+    text-align: center;
+    color: #fff;
+    cursor: pointer;
+    text-decoration: underline;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+.Back-login-btn:hover {
+    color: #ffe082;
+}
+
+/* Auth Error */
+.auth-error {
+    color: #ffcccc;
+    font-size: 13px;
+    margin-top: -5px;
+}
+
+/* Animation */
+/* @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(15px); }
+    to { opacity: 1; transform: translateY(0); }
+} */
+
+/* Mobile Responsive */
+@media (max-width: 500px) {
+    .main-login-page {
+        padding: 28px 22px;
+    }
+
+    .customer-login-form h4 {
+        font-size: 20px;
+    }
+}
+/* Remember Me Section */
+.rember-me {
+    display: flex;
+    align-items: center;        /* PERFECT vertical alignment */
+    gap: 10px;                  /* space between checkbox & text */
+    margin: 10px 0 20px;
+    color: white;
+    font-size: 14px;
+}
+
+/* Checkbox Styling (Optional for modern look) */
+.rember-me input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    accent-color: #ffffff;       /* modern white tick */
+    cursor: pointer;
+}
+
+/* Text */
+.rember-me span {
+    margin-top: 1px;             /* small adjust for perfect alignment */
+    cursor: pointer;
+}
+
+/* .main-login-page{
+  opacity: 0;
+  transform: rotate(360deg) scale(0.2);
+  animation: spinIn 1.2s ease-out forwards;
+} */
+
+@keyframes spinIn {
+  0% {
+    opacity: 0;
+    transform: rotate(360deg) scale(0.2);
+  }
+  100% {
+    opacity: 1;
+    transform: rotate(0deg) scale(1);
+  }
+}
+.customer-login {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  /* Animated Gradient Background */
+  background: linear-gradient(135deg, #6a35a3, #5372a7, #ff6f91, #00c9a7);
+  background-size: 400% 400%;
+  animation: bgAnimation 12s ease infinite;
+}
+
+@keyframes bgAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  25% {
+    background-position: 100% 50%;
+  }
+  50% {
+    background-position: 100% 100%;
+  }
+  75% {
+    background-position: 0% 100%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+.customer-login {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  /* Gradient background */
+  background-color:#ffffff;
+  overflow: hidden;
+}
+
+/* Bubble common styles (Yellow Bubbles) */
+.customer-login .bubble {
+  position: absolute;
+  bottom: -150px;
+  background: rgb(241, 214, 6);   /* Yellow bubble */
+  border-radius: 50%;
+  animation: rise 8s infinite ease-in;
+  filter: blur(1px);
+  box-shadow: 0 0 20px rgba(255, 225, 0, 0.8); /* Yellow glow */
+}
+
+
+/* Rising animation */
+@keyframes rise {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 0.7;
+  }
+  100% {
+    transform: translateY(-110vh) scale(1.5);
+    opacity: 0;
+  }
+}
+
+/* Different bubble sizes + delays */
+/* .customer-login .bubble:nth-child(1) { width: 40px; height: 40px; left: 10%; animation-duration: 7s; animation-delay: 0s; }
+.customer-login .bubble:nth-child(2) { width: 25px; height: 25px; left: 20%; animation-duration: 9s; animation-delay: 2s; }
+.customer-login .bubble:nth-child(3) { width: 50px; height: 50px; left: 35%; animation-duration: 11s; animation-delay: 1s; }
+.customer-login .bubble:nth-child(4) { width: 30px; height: 30px; left: 50%; animation-duration: 10s; animation-delay: 3s; }
+.customer-login .bubble:nth-child(5) { width: 60px; height: 60px; left: 65%; animation-duration: 12s; animation-delay: 0.5s; }
+.customer-login .bubble:nth-child(6) { width: 20px; height: 20px; left: 75%; animation-duration: 8s; animation-delay: 1.5s; }
+.customer-login .bubble:nth-child(7) { width: 45px; height: 45px; left: 90%; animation-duration: 10s; animation-delay: 2.5s; }
+ */
+
+

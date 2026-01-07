@@ -1,0 +1,191 @@
+.center-toast {
+  position: fixed !important;
+  top: 50% !important;
+  left: 50% !important;
+  transform: translate(-50%, -50%) !important;
+  margin: 0 !important;
+}
+/* ---------------------------------------
+   MAIN PAGE LAYOUT
+---------------------------------------- */
+.home-page {
+    width: 100%;
+    min-height: 100vh;
+    background: #f0f2f5;
+    font-family: "Poppins", sans-serif;
+    display: flex;
+    flex-direction: column;
+}
+
+/* ---------------------------------------
+   STICKY TOP HEADER BAR
+---------------------------------------- */
+.top-header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0px 2px 8px rgba(0,0,0,0.15);
+    backdrop-filter: blur(6px);
+}
+
+/* vendor photo + info text */
+.vender-image img {
+    border: 3px solid #fff;
+    object-fit: cover;
+}
+
+.vender-info p {
+    color: white;
+    margin: 2px 0;
+}
+
+/* ---------------------------------------
+   ACTION BUTTONS BAR
+---------------------------------------- */
+.action-btn button {
+    background: white;
+    border: none;
+    border-radius: 6px;
+    padding: 8px 15px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: 0.3s ease;
+}
+
+.action-btn button:hover {
+    transform: translateY(-2px);
+    background: #e8e8e8;
+}
+
+/* View Sales (Blue Button Style) */
+.btn-view-sale {
+    background: #1877f2 !important;
+    color: white !important;
+}
+.btn-view-sale:hover {
+    background: #0d5fcc !important;
+}
+
+/* Logout Button */
+.btn-logout {
+    background: red !important;
+    color: white !important;
+}
+.btn-logout:hover {
+    background: #c30000 !important;
+}
+
+/* ---------------------------------------
+   LEFT MENU + RIGHT DETAILS LAYOUT
+---------------------------------------- */
+.main-container {
+    margin-top: 10px;
+    display: flex;
+    gap: 20px;
+}
+
+/* LEFT SIDEBAR */
+.left-panel {
+    width: 25%;
+    background: white;
+    padding: 20px;
+    height: fit-content;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.08);
+}
+
+.left-panel button {
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+    margin-bottom: 12px;
+    border: none;
+    background: #1877f2;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.left-panel button:hover {
+    background: #0d5fcc;
+}
+
+/* RIGHT CONTENT AREA */
+.right-panel {
+    flex: 1;
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.08);
+}
+
+/* Vendor Info Card inside right side */
+.vendor-info-card {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    padding: 18px;
+    background: #ffffffa6;
+    border-radius: 12px;
+    box-shadow: 0px 3px 12px rgba(0,0,0,0.08);
+}
+
+.vendor-info-card img {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #1877f2;
+}
+
+.vendor-info-card p {
+    margin: 4px 0;
+    color: #333;
+    font-size: 15px;
+}
+
+
+/* ---------------------------------------
+   RESPONSIVE DESIGN
+---------------------------------------- */
+
+/* Medium Screens */
+@media (max-width: 1000px) {
+    .main-container {
+        flex-direction: column;
+    }
+
+    .left-panel {
+        width: 100%;
+    }
+}
+
+/* Small Screens - Mobile */
+@media (max-width: 550px) {
+
+    .top-header {
+        flex-direction: column;
+        align-items: flex-start;
+        padding-bottom: 10px !important;
+    }
+
+    .action-btn {
+        margin-top: 10px;
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+
+    .action-btn button {
+        flex: 1;
+        padding: 10px;
+        font-size: 14px;
+    }
+
+    .vendor-info-card {
+        flex-direction: column;
+        text-align: center;
+    }
+}

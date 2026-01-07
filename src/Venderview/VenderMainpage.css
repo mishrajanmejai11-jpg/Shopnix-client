@@ -1,0 +1,182 @@
+*{
+    margin: 0px;
+    padding: 0%;
+}
+vender_header_container{
+    height: 140px;
+    width: 100%;
+    margin: 10px;
+    padding: 15px 10px;
+    border-bottom: 3px solid black;
+}
+
+.vender-header-logo{
+    height: 120px;
+    width: 120px;
+    align-items: flex-start;
+    border-radius: 50px 50px 20px 20px;
+    box-shadow: 10px blueviolet;
+    content: icon;
+
+}
+
+
+/* css form online  */
+
+/* ---------- ROOT COLORS (Myntra Feel) ---------- */
+:root {
+  --primary-pink: #ff3f6c;
+  --dark-text: #282c3f;
+  --light-text: #535766;
+  --bg-light: #f5f5f6;
+  --white: #ffffff;
+}
+
+/* ---------- HEADER ---------- */
+.vender_header_container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 40px;
+  background-color: var(--white);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+/* Logo */
+.vender-header-logo {
+  height: 55px;
+  cursor: pointer;
+}
+
+/* Center Heading */
+.vender_header_container h2 {
+  flex: 1;
+  text-align: center;
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--dark-text);
+  letter-spacing: 0.4px;
+}
+
+/* Login Text */
+.vender_header_login {
+  font-size: 14px;
+  color: var(--light-text);
+  white-space: nowrap;
+}
+
+.vender_header_login a {
+  margin-left: 6px;
+  text-decoration: none;
+  font-weight: 600;
+  color: var(--primary-pink);
+  transition: 0.3s ease;
+}
+
+.vender_header_login a:hover {
+  text-decoration: underline;
+}
+
+/* ---------- BODY SECTION ---------- */
+.vender_body_container {
+  background: linear-gradient(135deg, #fff5f8, #f5f5f6);
+  min-height: calc(100vh - 90px);
+  padding: 80px 20px;
+  text-align: center;
+}
+
+/* Body Heading */
+.vender_body_container h3 {
+  font-size: 28px;
+  color: var(--dark-text);
+  margin-bottom: 12px;
+  font-weight: 600;
+}
+
+/* Body Paragraph */
+.vender_body_container p {
+  font-size: 16px;
+  color: var(--light-text);
+}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 992px) {
+  .vender_header_container {
+    padding: 12px 20px;
+  }
+
+  .vender_header_container h2 {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .vender_header_container {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .vender_header_container h2 {
+    order: 3;
+    width: 100%;
+    text-align: center;
+    font-size: 18px;
+  }
+
+  .vender_header_login {
+    font-size: 13px;
+  }
+
+  .vender_body_container h3 {
+    font-size: 22px;
+  }
+}
+
+@media (max-width: 480px) {
+  .vender-header-logo {
+    height: 45px;
+  }
+
+  .vender_header_container h2 {
+    font-size: 16px;
+  }
+
+  .vender_body_container {
+    padding: 60px 16px;
+  }
+
+  .vender_body_container p {
+    font-size: 14px;
+  }
+}
+
+.vender_main_regbtn{
+    height: 20px;
+    width: 80px;
+    font-weight: bold;
+    color: rgb(8, 12, 240, 0.6);
+    font-size: 18px;
+    border: transparent;
+}
+.vender_main_regbtn:hover{
+    font-weight: bolder;
+    color: rgba(6, 4, 97, 0.4);
+    font-size: 20px;
+    border: transparent;
+}
+.vender_back_btn{
+    height: 26px;
+    width: 80px;
+    font-size: 18px;
+    font-weight: bold;
+    background-color: rgba(228, 237, 240, 0.6);
+    border-color: #ff3f6c;
+    padding-bottom: 10px;
+    border-radius: 20px;
+    justify-items: flex-end;
+    color: #656669;
+    margin-left: 100px;
+}

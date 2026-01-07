@@ -1,0 +1,144 @@
+.customer_header_container{
+    background-image: url("../assets/customer_header.jpg");
+    background-size: cover;
+    height: 190px;
+    position: relative;
+
+}
+.cstm{
+    font-size: 45px;
+}
+.customer_header_container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 10px;
+  background-color: white;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+/* Logo */
+.customer-header-logo {
+  /* height: 55px; */
+  font-size: 26px;
+  margin-top:90px ;
+  cursor: pointer;
+}
+
+/* Center Heading */
+.customer_header_container h2 {
+  flex: 1;
+  text-align: center;
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--dark-text);
+  letter-spacing: 0.4px;
+}
+
+/* Login Text */
+.customer_header_login {
+  font-size: 16px;
+  color: black;
+  white-space: nowrap;
+  font-weight: 500;
+  margin-top: 120px;
+}
+
+.customer_header_login a {
+  margin-left: 6px;
+  text-decoration: none;
+  font-weight: 600;
+  color: blue;
+  font-weight: bold;
+  transition: 0.3s ease;
+  font-size: 24px;
+}
+
+.customer_header_login a:hover {
+  text-decoration: underline;
+  font-size: 26px;
+}
+.marqu {
+    font-size: 40px;
+}
+
+
+
+/* login css and regiter */
+
+/* ===== CUSTOMER HOME LOGIN / REGISTER BOX ===== */
+
+.customermain_body_container {
+  width: 100%;
+  max-width: 1100px;
+  margin: 40px auto;
+  display: flex;
+  gap: 30px;
+  justify-content: center;
+  align-items: stretch;
+  padding: 20px;
+}
+
+/* Common box styles */
+.customermain_login_container,
+.customermain_register_container {
+  width: 45%;
+  background: #ffffff;
+  padding: 30px 25px;
+  border-radius: 12px;
+  font-style: italic;
+  font-size: 18px;
+  line-height: 1.6;
+  color: #333;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+/* Hover effect */
+.customermain_login_container:hover,
+.customermain_register_container:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.15);
+  background: #fdfdfd;
+}
+
+/* Icons spacing */
+.customermain_login_container svg,
+.customermain_register_container svg {
+  margin: 0 6px;
+  color: #ff3f6c;
+  vertical-align: middle;
+}
+
+/* Link styling */
+.customermain_login_container a,
+.customermain_register_container a {
+  color: #ff3f6c;
+  font-weight: bold;
+  text-decoration: none;
+  margin-left: 6px;
+}
+
+.customermain_login_container a:hover,
+.customermain_register_container a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .customermain_body_container {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .customermain_login_container,
+  .customermain_register_container {
+    width: 100%;
+    text-align: center;
+  }
+}
+

@@ -1,0 +1,226 @@
+/* ================= PAGE ================= */
+.Vender-Sales-page {
+  padding: 15px;
+  font-family: "Segoe UI", sans-serif;
+  background: #f4f6f8;
+}
+
+/* ================= HEADER ================= */
+.Vender-Sales-page header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #ffffff;
+  padding: 14px 18px;
+  border-radius: 10px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+  margin-bottom: 16px;
+}
+
+.Vender-Sales-page h3 {
+  font-size: 20px;
+  font-weight: 600;
+  color: #111827;
+}
+
+/* ================= BUTTON ================= */
+.venderbtn {
+  background: linear-gradient(135deg, #4f46e5, #6366f1);
+  color: #fff;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.venderbtn:hover {
+  opacity: 0.92;
+  transform: translateY(-1px);
+}
+
+.venderbtn:disabled {
+  background: #9ca3af;
+  cursor: not-allowed;
+}
+
+/* ================= CONTENT ================= */
+.vendercontent {
+  background: #ffffff;
+  border-radius: 10px;
+  padding: 15px;
+  box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+}
+
+/* ================= FILTERS ================= */
+.venderfilters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: space-between;
+}
+
+.venderfilters input {
+  padding: 7px 10px;
+  border-radius: 6px;
+  border: 1px solid #d1d5db;
+  font-size: 14px;
+}
+
+.venderfilters button {
+  padding: 7px 12px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  background: #e5e7eb;
+}
+
+.venderfilters button:hover {
+  background: #d1d5db;
+}
+
+/* ================= SALES TABLE ================= */
+.vendersaless table {
+  border-collapse: collapse;
+  width: 100%;
+  margin-top: 14px;
+}
+
+.vendersaless th {
+  background: #f9fafb;
+  font-size: 14px;
+  padding: 10px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.vendersaless td {
+  padding: 9px;
+  font-size: 14px;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.vendersaless tr:hover {
+  background: #f3f4f6;
+}
+
+/* ================= PAGINATION ================= */
+.venderpaggination {
+  margin-top: 15px;
+  text-align: center;
+}
+
+.venderpaggination button {
+  padding: 6px 12px;
+  margin: 3px;
+  border-radius: 6px;
+  border: 1px solid #d1d5db;
+  cursor: pointer;
+}
+
+/* ================= SUMMARY ================= */
+.Vender-Sales-page h5 {
+  margin-top: 20px;
+  font-size: 15px;
+  font-weight: 600;
+  color: #111827;
+}
+
+/* ================= POPUP ================= */
+.venderpopup {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.55);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.venderpopup .vendercontent {
+  width: 95%;
+  max-width: 850px;
+  background: #ffffff;
+  border-radius: 14px;
+  padding: 20px;
+  animation: popupSlide 0.3s ease;
+}
+
+/* ================= POPUP HEADER ================= */
+.venderpopupheader {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.venderpopupheader h2 {
+  margin: 0;
+  font-size: 20px;
+}
+
+/* ================= POPUP TABLE ================= */
+.venderPouuptable {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.venderPouuptable th,
+.venderPouuptable td {
+  padding: 9px;
+  border-bottom: 1px solid #e5e7eb;
+  font-size: 14px;
+}
+
+/* ================= POPUP ACTION ================= */
+.venderpop {
+  margin-top: 15px;
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.venderbuttont {
+  background: #16a34a;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.venderclose {
+  background: #ef4444;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+/* ================= ANIMATION ================= */
+@keyframes popupSlide {
+  from {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 768px) {
+  .Vender-Sales-page header {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .venderfilters {
+    flex-direction: column;
+  }
+
+  table {
+    font-size: 13px;
+  }
+}

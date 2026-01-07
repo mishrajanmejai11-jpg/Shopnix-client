@@ -1,0 +1,159 @@
+.center-toast {
+  position: fixed !important;
+  top: 50% !important;
+  left: 50% !important;
+  transform: translate(-50%, -50%) !important;
+  margin: 0 !important;
+}
+
+
+/* OUTER CONTAINER */
+.customer-register {
+  min-height: 100vh;
+  padding: 40px 20px;
+  background: linear-gradient(135deg, #4f46e5, #9333ea, #ec4899);
+  background-size: 300% 300%;
+  animation: gradientMove 10s ease infinite;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Gradient animation */
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* GLASS CARD */
+.customer-page {
+  width: 100%;
+  max-width: 550px;
+  padding: 30px;
+  border-radius: 20px;
+  background: rgba(255,255,255,0.15);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+  transition: 0.3s;
+}
+
+.customer-page:hover {
+  transform: translateY(-3px);
+}
+
+/* TITLE */
+.customer-form h2 {
+  text-align: center;
+  color: #fff;
+  margin-bottom: 15px;
+  letter-spacing: 1px;
+}
+
+/* STATUS MESSAGE */
+#status {
+  text-align: center;
+  color: yellow;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+/* FORM */
+.customer-registr-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* LABEL STYLING */
+.customer-registr-form label {
+  display: flex;
+  flex-direction: column;
+  color: #fff;
+  font-size: 15px;
+  font-weight: bold;
+  gap: 5px;
+  transition: 0.3s;
+}
+
+.customer-registr-form label:hover {
+  color: #ffe082;
+  transform: translateX(3px);
+}
+
+/* INPUT + SELECT */
+.customer-registr-form input,
+.customer-registr-form select {
+  width: 100%;
+  padding: 8px 5px;
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid #ddd;
+  color: #0c0c0c;
+  outline: none;
+  transition: 0.3s;
+  font-size: 15px;
+}
+
+.customer-registr-form input::placeholder {
+  color: #e0e0e0;
+}
+
+.customer-registr-form input:hover,
+.customer-registr-form select:hover {
+  border-bottom-color: #ffeb3b;
+}
+
+.customer-registr-form input:focus,
+.customer-registr-form select:focus {
+  border-bottom-color: #fff;
+  transform: scale(1.02);
+}
+
+/* FILE INPUT */
+.customer-registr-form input[type="file"] {
+  border: none;
+  padding: 8px 0;
+  color: #fff;
+}
+
+.customer-registr-form img {
+  margin-top: 10px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px #000;
+}
+
+/* BUTTON */
+.btn-register {
+  margin-top: 15px;
+  padding: 12px;
+  border: none;
+  border-radius: 25px;
+  background: linear-gradient(45deg, #ff9800, #ff5722);
+  color: #fff;
+  font-size: 17px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn-register:hover {
+  transform: scale(1.05);
+  background: linear-gradient(45deg, #ff5722, #d32f2f);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.4);
+}
+
+/* RESPONSIVE */
+@media (max-width: 500px) {
+  .customer-page {
+    padding: 20px;
+  }
+
+  .customer-registr-form label {
+    font-size: 14px;
+  }
+
+  .btn-register {
+    font-size: 15px;
+  }
+}

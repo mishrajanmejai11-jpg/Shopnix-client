@@ -1,0 +1,181 @@
+/* ================= MAIN CONTAINER ================= */
+.customer_changepsswrd_conatiner {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #f4f6f8;
+  padding: 20px;
+}
+
+/* ================= FORM CARD ================= */
+.customer_form-container {
+  width: 100%;
+  max-width: 420px;
+  background: #ffffff;
+  padding: 25px 30px;
+  border-radius: 12px;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.1);
+}
+
+/* ================= TITLE ================= */
+.customer_form-container h3 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 20px;
+  font-weight: 600;
+  color: #111827;
+}
+
+/* ================= ALERTS ================= */
+.alert.success {
+  background: #dcfce7;
+  color: #166534;
+  padding: 10px;
+  border-radius: 6px;
+  margin-bottom: 12px;
+  font-size: 14px;
+}
+
+.alert-error {
+  background: #fee2e2;
+  color: #991b1b;
+  padding: 10px;
+  border-radius: 6px;
+  margin-bottom: 12px;
+  font-size: 14px;
+}
+
+/* ================= FORM ================= */
+.customer_changepassword_form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+/* ================= LABEL ================= */
+.customer_changepassword_form label {
+  font-size: 14px;
+  font-weight: 500;
+  color: #374151;
+}
+
+/* ================= INPUT ================= */
+.customer_changepassword_form input {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 6px;
+  border: 1px solid #d1d5db;
+  font-size: 14px;
+  transition: all 0.25s ease;
+  background: #f9fafb;
+}
+
+.customer_changepassword_form input:focus {
+  outline: none;
+  border-color: #4f46e5;
+  background: #ffffff;
+  box-shadow: 0 0 0 2px rgba(79,70,229,0.15);
+}
+
+.customer_changepassword_form input:disabled {
+  background: #e5e7eb;
+  cursor: not-allowed;
+}
+
+/* ================= PASSWORD FIELD ================= */
+.customer_changepassword_form > div {
+  position: relative;
+}
+
+.password-filed {
+  position: relative;
+}
+
+/* Eye icon */
+.customer_changepassword_form span {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  color: #6b7280;
+  font-size: 16px;
+  transition: color 0.2s;
+}
+
+.customer_changepassword_form span:hover {
+  color: #4f46e5;
+}
+
+/* ================= STRENGTH BAR ================= */
+.strength-bar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: -6px;
+}
+
+.strength-bar .bar {
+  height: 6px;
+  width: 100px;
+  border-radius: 4px;
+  background: #e5e7eb;
+  overflow: hidden;
+}
+
+.level-1 { background: #dc2626; width: 25%; }
+.level-2 { background: #f97316; width: 50%; }
+.level-3 { background: #eab308; width: 75%; }
+.level-4 { background: #16a34a; width: 100%; }
+
+.strength-bar span {
+  position: static;
+  transform: none;
+  font-size: 13px;
+  color: #374151;
+}
+
+/* ================= BUTTON ================= */
+.customer_changepassword_form button {
+  margin-top: 10px;
+  padding: 11px;
+  border-radius: 8px;
+  border: none;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  background: #4f46e5;
+  color: #ffffff;
+  transition: all 0.3s ease;
+}
+
+.customer_changepassword_form button:hover {
+  background: #4338ca;
+  transform: translateY(-1px);
+}
+
+.customer_changepassword_form button:disabled {
+  background: #9ca3af;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* ================= HINT ================= */
+.hint {
+  margin-top: 12px;
+  font-size: 13px;
+  color: #6b7280;
+  text-align: center;
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 480px) {
+  .customer_form-container {
+    padding: 20px;
+  }
+
+  .customer_form-container h3 {
+    font-size: 18px;
+  }
+}

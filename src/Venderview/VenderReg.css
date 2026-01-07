@@ -1,0 +1,250 @@
+/* ================= BASE ================= */
+* {
+  box-sizing: border-box;
+  font-family: "Segoe UI", Arial, sans-serif;
+}
+
+/* ================= PAGE ================= */
+.vender-registration {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f2f5f9, #e7ecf2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 50px 20px;
+}
+
+/* ================= FORM CARD ================= */
+.vender-registration-form {
+  background: #ffffff;
+  width: 100%;
+  max-width: 760px; /* INCREASED FORM SIZE */
+  padding: 65px 60px 70px;
+  border-radius: 16px;
+  box-shadow: 0 22px 60px rgba(0, 0, 0, 0.12);
+  text-align: center;
+}
+
+/* ================= TOP IMAGE ================= */
+.vender_condition_img {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 25px;
+}
+
+.vender_header_photo {
+  width: 190px;  /* INCREASED IMAGE SIZE */
+  height: 190px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 5px solid #ff9900;
+  background: #fff;
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.2);
+  animation: successGlow 0.8s ease;
+}
+
+/* ================= TITLE ================= */
+.vender-registration-form h3 {
+  font-size: 28px;
+  margin-bottom: 35px;
+  font-weight: 600;
+  color: #222;
+}
+
+.vender-registration-form h3 strong {
+  color: #ff9900;
+}
+
+/* ================= FORM GRID ================= */
+.vender_reg_form {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 18px;
+}
+
+/* Desktop two-column */
+@media (min-width: 768px) {
+  .vender_reg_form {
+    grid-template-columns: 1fr 1fr;
+    column-gap: 28px;
+  }
+
+  /* Full width rows */
+  .vender_reg_form label:nth-child(1),
+  .vender_reg_form label:nth-child(6), /* Address */
+  .vender_reg_form label:nth-child(13),
+  .vender-btn-upload,
+  .vender-btn-register {
+    grid-column: span 2;
+  }
+}
+
+/* ================= LABEL ================= */
+.vender_reg_form label {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  font-size: 16px;
+  font-weight: 500;
+  color: #333;
+}
+
+/* ================= INPUT ================= */
+.vender_reg_form input,
+.vender_reg_form select {
+  width: 100%;
+  margin-top: 6px;
+  padding: 16px 18px;
+  font-size: 16px;
+  border-radius: 8px;
+  border: 1px solid #d5d9d9;
+  outline: none;
+  background: #fff;
+  transition: all 0.25s ease;
+}
+
+/* Address input bigger */
+.vender_reg_form label:nth-child(6) input {
+  height: 68px;            /* INCREASED HEIGHT */
+  padding-top: 18px;
+}
+
+/* Hover */
+.vender_reg_form input:hover,
+.vender_reg_form select:hover {
+  border-color: #ff9900;
+}
+
+/* Focus */
+.vender_reg_form input:focus,
+.vender_reg_form select:focus {
+  border-color: #ff9900;
+  box-shadow: 0 0 0 3px rgba(255, 153, 0, 0.25);
+}
+
+/* ================= SELECT ================= */
+.vender_reg_form select {
+  cursor: pointer;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16'%3E%3Cpath fill='%23666' d='M4 6l4 4 4-4z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 16px center;
+  appearance: none;
+}
+
+/* ================= ERROR TEXT ================= */
+.vender_reg_form span {
+  margin-top: 6px;
+  font-size: 13px;
+  color: #d93025;
+  animation: fadeIn 0.3s ease;
+}
+
+/* ================= IMAGE PREVIEW ================= */
+.vender_photo {
+  width: 150px;
+  height: 140px;
+  margin-top: 10px;
+  border-radius: 30%;
+  object-fit: cover;
+  border: 2px solid #ccc;
+}
+
+/* ================= BUTTONS ================= */
+.vender-btn-upload,
+.vender-btn-register {
+  width: 100%;
+  padding: 17px;
+  font-size: 17px;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  border: none;
+  transition: all 0.3s ease;
+}
+
+/* Upload */
+.vender-btn-upload {
+  background: #f1f3f4;
+  color: #111;
+  border: 1px solid #d5d9d9;
+}
+
+.vender-btn-upload:hover {
+  background: #e4e6e7;
+}
+
+/* Register */
+.vender-btn-register {
+  background: linear-gradient(to bottom, #f7dfa5, #f0c14b);
+  color: #111;
+  border: 1px solid #a88734;
+}
+
+.vender-btn-register:hover {
+  background: linear-gradient(to bottom, #f5d78e, #eeb933);
+}
+
+/* ================= FOOTER ================= */
+.vender-registration p {
+  margin-top: 22px;
+  font-size: 15px;
+  color: #555;
+}
+
+.vender-registration p a {
+  color: #0066c0;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.vender-registration p a:hover {
+  text-decoration: underline;
+}
+
+/* ================= ANIMATIONS ================= */
+@keyframes shake {
+  0% { transform: translateX(0); }
+  25% { transform: translateX(-4px); }
+  50% { transform: translateX(4px); }
+  75% { transform: translateX(-4px); }
+  100% { transform: translateX(0); }
+}
+
+@keyframes successGlow {
+  0% { box-shadow: 0 0 0 0 rgba(40,167,69,0.6); }
+  100% { box-shadow: 0 0 0 8px rgba(40,167,69,0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ================= MOBILE ================= */
+@media (max-width: 480px) {
+  .vender-registration-form {
+    padding: 40px 26px 45px;
+  }
+
+  .vender_header_photo {
+    width: 135px;
+    height: 135px;
+  }
+
+  .vender-registration-form h3 {
+    font-size: 23px;
+  }
+
+  .vender_reg_form input,
+  .vender_reg_form select {
+    font-size: 15px;
+    padding: 14px 16px;
+  }
+
+  .vender_reg_form label:nth-child(6) input {
+    height: 58px;
+  }
+}

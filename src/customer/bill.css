@@ -1,0 +1,194 @@
+/* ================= BACKDROP ================= */
+.bill-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.55);
+  backdrop-filter: blur(6px);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 30px 15px;
+  z-index: 9999;
+  overflow-y: auto;
+}
+
+/* ================= BILL CARD ================= */
+.bill-card {
+  background: #ffffff;
+  width: 100%;
+  max-width: 950px;
+  border-radius: 14px;
+  box-shadow: 0 18px 45px rgba(0,0,0,0.25);
+  padding: 22px;
+  animation: billFade 0.3s ease;
+}
+
+/* ================= HEADER ================= */
+.bill-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #e5e7eb;
+  padding-bottom: 12px;
+  margin-bottom: 18px;
+}
+
+.bill-header h3 {
+  font-size: 20px;
+  color: #111827;
+  font-weight: 600;
+}
+
+.bill-header-action button {
+  background: #f3f4f6;
+  border: none;
+  padding: 6px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.bill-header-action button:hover {
+  background: #e5e7eb;
+}
+
+/* ================= INFO GRID ================= */
+.bill-card > div:nth-of-type(2) {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 18px;
+  margin-bottom: 16px;
+  font-size: 14px;
+}
+
+.bill-card strong {
+  color: #111827;
+}
+
+/* ================= WARNING ================= */
+.bill-warning {
+  background: #fff7ed;
+  color: #9a3412;
+  padding: 10px 12px;
+  border-radius: 6px;
+  font-size: 14px;
+  margin-bottom: 12px;
+  border-left: 4px solid #fb923c;
+}
+
+/* ================= TABLE ================= */
+.bill-card table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 12px;
+}
+
+.bill-card th {
+  background: #f9fafb;
+  text-align: left;
+  padding: 10px;
+  font-size: 14px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.bill-card td {
+  padding: 10px;
+  font-size: 14px;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.bill-card td button {
+  padding: 4px 8px;
+  margin: 0 3px;
+  border-radius: 5px;
+  border: 1px solid #d1d5db;
+  background: #ffffff;
+  cursor: pointer;
+}
+
+.bill-card td span {
+  margin: 0 6px;
+  font-weight: 600;
+}
+
+/* ================= REMOVE ================= */
+.remove-btn {
+  background: #fee2e2;
+  border: none;
+  padding: 6px 10px;
+  border-radius: 6px;
+  color: #b91c1c;
+  cursor: pointer;
+}
+
+.remove-btn:hover {
+  background: #fecaca;
+}
+
+/* ================= EMPTY ================= */
+.no-item {
+  text-align: center;
+  padding: 20px;
+  color: #6b7280;
+}
+
+/* ================= FOOTER ================= */
+.bill-card > div:last-child {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+/* ================= PAY BUTTON ================= */
+.pay-btn {
+  background: linear-gradient(135deg, #22c55e, #16a34a);
+  border: none;
+  padding: 10px 24px;
+  border-radius: 8px;
+  color: #ffffff;
+  font-size: 15px;
+  cursor: pointer;
+  transition: 0.25s;
+}
+
+.pay-btn:hover {
+  opacity: 0.95;
+  transform: translateY(-1px);
+}
+
+.pay-btn:disabled {
+  background: #9ca3af;
+  cursor: not-allowed;
+}
+
+/* ================= ANIMATION ================= */
+@keyframes billFade {
+  from {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* ================= MOBILE ================= */
+@media (max-width: 768px) {
+  .bill-card > div:nth-of-type(2) {
+    grid-template-columns: 1fr;
+  }
+
+  .bill-card table {
+    font-size: 13px;
+  }
+
+  .bill-card > div:last-child {
+    flex-direction: column;
+    gap: 12px;
+    align-items: flex-start;
+  }
+}

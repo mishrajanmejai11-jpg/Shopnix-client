@@ -1,0 +1,179 @@
+/* ================= RESET ================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ================= HEADER ================= */
+
+.main-header {
+  height: auto;
+  min-height: 120px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 40px;
+  background: #ffffff;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+}
+
+/* ================= LOGO SECTION ================= */
+
+.logo-section {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #ff3f6c;
+}
+
+/* Logo Image Bigger */
+.logo-section img {
+  height: 90px;
+  width: auto;
+  object-fit: contain;
+}
+
+/* Text Container */
+.logo-section span {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.1;
+}
+
+/* ShopNix Name */
+.logo-section span {
+  font-size: 32px;
+  font-weight: 700;
+}
+
+/* Sub Name Below */
+.logo_subName {
+  font-size: 14px;
+  font-weight: 500;
+  color: #555;
+  margin-top: 4px;
+}
+
+/* ================= NAV LINKS ================= */
+
+.header-links {
+  display: flex;
+  align-items: center;
+}
+
+.header-links a {
+  margin-left: 22px;
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 500;
+  color: #282c3f;
+  transition: color 0.2s ease;
+}
+
+.header-links a:hover {
+  color: #ff3f6c;
+}
+
+/* ================= RIGHT SECTION ================= */
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+/* Search Bar */
+.search-bar {
+  width: 220px;
+  padding: 8px 12px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  outline: none;
+  font-size: 14px;
+}
+
+.search-bar:focus {
+  border-color: #ff3f6c;
+}
+
+/* Cart Icon */
+.cart-icon {
+  font-size: 22px;
+  cursor: pointer;
+}
+
+/* ================= RESPONSIVE ================= */
+
+/* Tablet */
+@media (max-width: 992px) {
+  .main-header {
+    padding: 12px 20px;
+  }
+
+  .logo-section img {
+    height: 75px;
+  }
+
+  .logo-section span {
+    font-size: 26px;
+  }
+
+  .header-links a {
+    margin-left: 15px;
+    font-size: 14px;
+  }
+
+  .search-bar {
+    width: 180px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .main-header {
+    flex-wrap: wrap;
+    row-gap: 15px;
+    justify-content: center;
+  }
+
+  .logo-section {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .header-links {
+    width: 100%;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .header-links a {
+    margin: 6px 10px;
+  }
+
+  .header-right {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* Small Mobile */
+@media (max-width: 480px) {
+  .logo-section img {
+    height: 65px;
+  }
+
+  .logo-section span {
+    font-size: 22px;
+  }
+
+  .logo_subName {
+    font-size: 12px;
+  }
+
+  .search-bar {
+    width: 160px;
+  }
+}

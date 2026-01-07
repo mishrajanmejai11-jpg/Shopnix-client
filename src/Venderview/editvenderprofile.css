@@ -1,0 +1,122 @@
+/* ================= OVERLAY ================= */
+.vender_editprofile_container {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.45);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 3000;
+  padding: 15px;
+}
+
+/* ================= FORM CARD ================= */
+.vender_editprofile_container > div {
+  width: 100%;
+  max-width: 480px;
+  background: #ffffff;
+  padding: 25px 30px;
+  border-radius: 14px;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+/* ================= TITLE ================= */
+.vender_editprofile_container h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 22px;
+  font-weight: 600;
+  color: #111827;
+}
+
+/* ================= INPUTS ================= */
+.vender_editprofile_container input {
+  width: 100%;
+  padding: 10px 12px;
+  margin-top: 12px;
+  border-radius: 6px;
+  border: 1px solid #d1d5db;
+  font-size: 14px;
+  transition: all 0.25s ease;
+  background: #f9fafb;
+}
+
+.vender_editprofile_container input:focus {
+  outline: none;
+  border-color: #4f46e5;
+  background: #ffffff;
+  box-shadow: 0 0 0 2px rgba(79,70,229,0.15);
+}
+
+/* ================= TEXT ================= */
+.vender_editprofile_container p {
+  margin-top: 12px;
+  font-size: 14px;
+  color: #374151;
+}
+
+/* ================= IMAGE ================= */
+.vender_editprofile_container img {
+  display: block;
+  margin-top: 8px;
+  margin-bottom: 12px;
+  border-radius: 10px;
+  object-fit: cover;
+  border: 2px solid #e5e7eb;
+}
+
+/* ================= FILE INPUT ================= */
+.vender_editprofile_container input[type="file"] {
+  border: none;
+  background: transparent;
+  padding: 6px 0;
+}
+
+/* ================= BUTTONS ================= */
+.vender_editprofile_container button {
+  margin-top: 15px;
+  padding: 10px;
+  width: 48%;
+  border-radius: 8px;
+  border: none;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+/* Save */
+.vender_editprofile_container button:first-of-type {
+  background: #4f46e5;
+  color: #ffffff;
+}
+
+.vender_editprofile_container button:first-of-type:hover {
+  background: #4338ca;
+  transform: translateY(-1px);
+}
+
+/* Cancel */
+.vender_editprofile_container button:last-of-type {
+  background: #e5e7eb;
+  color: #374151;
+  margin-left: 4%;
+}
+
+.vender_editprofile_container button:last-of-type:hover {
+  background: #d1d5db;
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 480px) {
+  .vender_editprofile_container > div {
+    padding: 20px;
+  }
+
+  .vender_editprofile_container button {
+    width: 100%;
+    margin-left: 0;
+  }
+}

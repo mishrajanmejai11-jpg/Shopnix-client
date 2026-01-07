@@ -1,0 +1,202 @@
+/* ================= MAIN CONTAINER ================= */
+.customer_order_billbyid {
+  width: 100%;
+  padding: 25px;
+  background: #f4f6f8;
+}
+
+/* ================= HEADER ================= */
+.customer_order_billbyid h3 {
+  font-size: 22px;
+  margin-bottom: 5px;
+  color: #111827;
+}
+
+.customer_order_billbyid p {
+  font-size: 14px;
+  color: #374151;
+  margin-bottom: 15px;
+}
+
+/* ================= FILTER TABLE ================= */
+.bill-table-h3 {
+  margin-bottom: 25px;
+}
+
+.bill-table-h3 td {
+  padding: 10px 15px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.bill-table-h3 select {
+  width: 180px;
+  padding: 8px 10px;
+  margin-left: 8px;
+  border-radius: 6px;
+  border: 1px solid #d1d5db;
+  transition: all 0.25s ease;
+}
+
+.bill-table-h3 select:focus {
+  outline: none;
+  border-color: #4f46e5;
+  box-shadow: 0 0 0 2px rgba(79,70,229,0.15);
+}
+
+/* ================= BILL CARD ================= */
+.customer_order_billbyid h4 {
+  margin-top: 20px;
+  font-size: 18px;
+  color: #111827;
+}
+
+/* ================= TABLE ================= */
+.table-border {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+  background: #ffffff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+}
+
+.table-border th,
+.table-border td {
+  padding: 12px;
+  text-align: center;
+  font-size: 14px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.table-border th {
+  background: #f9fafb;
+  font-weight: 600;
+  color: #111827;
+}
+
+.table-border tr:hover {
+  background: #f3f4f6;
+}
+
+.table-border img {
+  border-radius: 6px;
+  object-fit: cover;
+}
+
+/* ================= SUMMARY ================= */
+.customer_order_billbyid b {
+  color: #111827;
+}
+
+/* ================= BUTTONS ================= */
+.customer_order_billbyid button {
+  margin-top: 10px;
+  margin-right: 10px;
+  padding: 8px 14px;
+  border-radius: 6px;
+  border: none;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+/* Download */
+.customer_order_billbyid button:nth-of-type(1) {
+  background: #111827;
+  color: #ffffff;
+}
+
+.customer_order_billbyid button:nth-of-type(1):hover {
+  background: #000000;
+}
+
+/* Track */
+.customer_order_billbyid button:nth-of-type(2) {
+  background: #4f46e5;
+  color: #ffffff;
+}
+
+.customer_order_billbyid button:nth-of-type(2):hover {
+  background: #4338ca;
+}
+
+/* Download all */
+.customer_order_billbyid button:last-of-type {
+  background: #16a34a;
+  color: #ffffff;
+}
+
+.customer_order_billbyid button:last-of-type:hover {
+  background: #15803d;
+}
+
+/* ================= TRACKING POPUP ================= */
+.traching {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.45);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 3000;
+}
+
+.popup {
+  background: #ffffff;
+  width: 90%;
+  max-width: 700px;
+  border-radius: 14px;
+  padding: 20px;
+  position: relative;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+}
+
+/* Close button */
+.tracking-close {
+  position: absolute;
+  top: 10px;
+  right: 14px;
+  font-size: 22px;
+  cursor: pointer;
+  color: #9ca3af;
+}
+
+.tracking-close:hover {
+  color: #dc2626;
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 768px) {
+  .bill-table-h3 td {
+    display: block;
+    padding: 10px 0;
+  }
+
+  .bill-table-h3 select {
+    width: 100%;
+    margin-top: 6px;
+  }
+
+  .table-border th,
+  .table-border td {
+    font-size: 13px;
+    padding: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .customer_order_billbyid {
+    padding: 15px;
+  }
+
+  .customer_order_billbyid h3 {
+    font-size: 20px;
+  }
+
+  .popup {
+    padding: 15px;
+  }
+}
