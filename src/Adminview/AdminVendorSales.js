@@ -68,7 +68,7 @@ export default function AdminVendorSales(){
         setLoadingSales(true);
 
         try{
-            const res=await axios.get(`${process.env.REACT_APP_API_URL}/vender/${selectedVender}`);
+            const res=await axios.get(`${process.env.REACT_APP_API_URL}/sales/vender/${selectedVender}`);
             const data= res.data.sales ?? [];
             setSales(Array.isArray(data) ? data: []);
             setSalesPage([]);

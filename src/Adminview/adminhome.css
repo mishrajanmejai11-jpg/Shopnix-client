@@ -1,4 +1,4 @@
-.adboard{
+/* .adboard{
     background-color: #A6AEBF;
     width: 86%;
     height: 47px;
@@ -16,4 +16,117 @@ border-radius: 0.9cap;
 .admindiv{
     padding-top: 5px;
   
+} */
+
+
+/* ================================
+   SHOPNIX – ADMIN DASHBOARD CSS
+   Clean | Basic | Responsive
+================================ */
+
+/* Root Admin Container */
+.AdimHome {
+  min-height: 100vh;
+  background-color: #f4f6f9; /* ecommerce admin background */
+  padding: 25px 15px;
+  box-sizing: border-box;
+  font-family: "Segoe UI", sans-serif;
+}
+
+/* Page Heading */
+.AdimHome h3 {
+  font-size: clamp(20px, 2.5vw, 28px);
+  margin-bottom: 20px;
+  color: #1f2937; /* dark slate */
+  font-weight: 600;
+}
+
+/* Dashboard Wrapper */
+.adboard {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+/* Admin Button Box */
+.admindiv {
+  width: 100%;
+  max-width: 1100px;
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 12px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 14px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+/* Admin Buttons */
+.badmin {
+  padding: 12px 8px;
+  font-size: 14px;
+  font-weight: 500;
+  background-color: #2563eb; /* ShopNix primary blue */
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+/* Hover Effect */
+.badmin:hover {
+  background-color: #1d4ed8;
+  box-shadow: 0 4px 10px rgba(37, 99, 235, 0.35);
+  transform: translateY(-2px);
+}
+
+/* Click Effect */
+.badmin:active {
+  transform: scale(0.96);
+}
+
+/* Logout Button */
+.badmin:last-child {
+  background-color: #dc2626;
+}
+
+.badmin:last-child:hover {
+  background-color: #b91c1c;
+  box-shadow: 0 4px 10px rgba(220, 38, 38, 0.35);
+}
+
+/* ================================
+   RESPONSIVE BREAKPOINTS
+================================ */
+
+/* Tablet */
+@media (max-width: 768px) {
+  .admindiv {
+    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+    padding: 16px;
+  }
+
+  .badmin {
+    font-size: 13px;
+    padding: 10px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .AdimHome {
+    padding: 15px 10px;
+  }
+
+  .admindiv {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+
+  .badmin {
+    font-size: 12px;
+    padding: 9px;
+    border-radius: 6px;
+  }
 }
