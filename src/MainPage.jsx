@@ -123,6 +123,7 @@ export default function MainPage() {
         <p className="marqu">
         <marquee >Grab upto30% on your First Order USE (CODE-NEW30) %% </marquee></p> */}
       <Routes>
+        <Route path="/" element={<App />} />
         <Route path="/home" element={<App />} />
         <Route path="/CustomerMain" element={<Customermain/>} />
         <Route path="/Customerlogin" element={<CustomerLogin/>} />

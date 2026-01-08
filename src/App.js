@@ -7,6 +7,7 @@ import "./App.css";
 // import { FaShoppingCart,FaUserEdit } from "react-icons/fa";
 // import slider1 from './assets/slider1.png'
 import MainSlider from "./slidercomponent/Mainslider";
+import OfferBar from "./slidercomponent/Offerbar";
 
 
 
@@ -23,7 +24,9 @@ export default function App() {
         <div className="Main-Page">
            <MainSlider/>
                   <p className="marqu">
-                  <marquee >Grab upto30% on your First Order USE (CODE-NEW30) %% </marquee></p>
+                  {/* <marquee >Grab upto30% on your First Order USE (CODE-NEW30) %% </marquee> */}
+                  </p>
+                  <OfferBar/>
             {/* <h1> WELCOME, To Your Shoping World!</h1> */}
             {/* <img src={slider1} className="Main_page_slider"></img> */}
             {/* <p>

@@ -262,7 +262,7 @@ export default function ProductListforMainpage(){
           />
           <span className="cart-icon">🛒</span>
         </div> */}
-                    <center>
+                    <div className="filter-container">
                         <label>Filter By Price:</label>
                         <select onChange={handleFilterInc} className="filterBy">
                             <option defaultValue="0" >select</option>
@@ -325,7 +325,7 @@ export default function ProductListforMainpage(){
                                     );
                                 })}
                         </div>)}
-                    </center>
+                    </div>
                 </div>
                 </>
                 </div>

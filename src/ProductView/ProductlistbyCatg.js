@@ -19,8 +19,8 @@ export default function ProductListbyCatg({id,onback}){
     const [showplist,setShowplist]=useState([]);
     const [updatedlist,setUpdatelist]=useState(false);
     const [catgid,setCatgid]=useState(id);
+    const url=process.env.REACT_APP_API_URL;
     const ProUrl=`${url}/product/`;
-   const url=process.env.REACT_APP_API_URL;
     useEffect(()=>{
         axios.get(`${ProUrl}showproductbycatg/${catgid}`).then((res)=>{
             setPlist(res.data.filter(product=>product.status===true)||[]);

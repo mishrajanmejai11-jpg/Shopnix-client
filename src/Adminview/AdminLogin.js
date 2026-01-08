@@ -26,6 +26,10 @@
                 alert("Invalid credentials");
             }
         };
+        
+        const handleforget=()=>{
+            alert("Contact System Administrator to reset password");
+        };
 
         return(
             <div className="adminlogin-container">
@@ -36,6 +40,7 @@
                     <input type="password" placeholder="Password" value={upass} onChange={(e)=> setUpass(e.target.value)}/>
               
               <button className="adminLogin-button" onClick={handleLoginButton}>Login</button>
+              <button className="adminLogin-button" onClick={handleforget}>Forget Password</button>
                 </div>
             </div>
         )
