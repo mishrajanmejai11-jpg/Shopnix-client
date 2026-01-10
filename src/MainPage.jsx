@@ -39,7 +39,7 @@
 // }
 import React, { useEffect, useState } from "react";
 import {  Routes, Route, Link } from "react-router-dom";
-
+import { SpeedInsights } from "@vercel/speed-insights/react";
 
 import CustomerHome from "./customer/Customerhome";
 import VendorHome from "./Venderview/VenderHome";
@@ -229,7 +229,7 @@ export default function MainPage() {
 
 </section>
 
-      
+      <SpeedInsights />
       </>
 
      
