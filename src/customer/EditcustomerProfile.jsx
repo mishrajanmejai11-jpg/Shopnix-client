@@ -11,8 +11,8 @@ export default function EditCustomerProfile({user,onClose,onUpdate}){
     const [ctList,setCtList]=useState([]);
     const [error,setError]=useState({});
 
-    const url=`${apiurl}/customer/`
     const apiurl=process.env.REACT_APP_API_URL;
+    const url=`${apiurl}/customer/`
 
     useEffect(()=>{
         axios.get(`${url}getcustomerdetails/${user.Cid}`).then((res)=>{
