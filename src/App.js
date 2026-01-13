@@ -1,5 +1,6 @@
 
 import React, { Activity, useState } from "react";
+import { SpeedInsights } from "@vercel/speed-insights/react";
 // import VenderLogin from "./Venderview/Venderlogin";
 // import CustomerLogin from "./customer/customerlogin";
 import ProductListforMainpage from "./ProductView/ProductlistforMainpage";
@@ -20,6 +21,7 @@ export default function App() {
   return (
     <div className="app_main_container">
         <>
+        <SpeedInsights />
         <div className="Main-Page">
            <MainSlider/>
                   <p className="marqu">
