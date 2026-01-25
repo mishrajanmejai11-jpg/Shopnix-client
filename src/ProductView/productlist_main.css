@@ -1,0 +1,259 @@
+/* ===================================================
+   MODERN E-COMMERCE THEME (MOBILE FIRST)
+=================================================== */
+:root {
+  --primary-yellow: #ffd814;
+  --primary-orange: #ff9900;
+  --text-dark: #111;
+  --text-muted: #666;
+  --danger: #b12704;
+  --discount: #cc0c39;
+  --border: #e0e0e0;
+  --bg-page: #f6f6f6;
+  --bg-card: #ffffff;
+  --shadow-soft: 0 4px 12px rgba(0,0,0,0.08);
+  --shadow-hover: 0 12px 30px rgba(0,0,0,0.18);
+}
+
+/* ===================================================
+   RESET
+=================================================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, Helvetica, Arial, sans-serif;
+  background: var(--bg-page);
+  color: var(--text-dark);
+}
+
+/* ===================================================
+   BLUR EFFECT
+=================================================== */
+.blured-content {
+  filter: blur(5px);
+  pointer-events: none;
+}
+
+/* ===================================================
+   CUSTOMER INFO (MOBILE FIRST)
+=================================================== */
+.customer-info {
+  background: var(--bg-card);
+  margin: 10px;
+  padding: 12px;
+  border-radius: 10px;
+  box-shadow: var(--shadow-soft);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  text-align: center;
+}
+
+.customer-info span {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.customer-info button {
+  width: 100%;
+  padding: 10px;
+  border-radius: 20px;
+  border: none;
+  font-weight: 600;
+  background: var(--primary-yellow);
+  cursor: pointer;
+}
+
+.customer-info button:hover {
+  background: #f7ca00;
+}
+
+/* ===================================================
+   FILTER SECTION (STACKED ON MOBILE)
+=================================================== */
+.mainpage_filter-container {
+  margin: 10px;
+  padding: 10px;
+  background: var(--bg-card);
+  border-radius: 10px;
+  box-shadow: var(--shadow-soft);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.filterBy,
+.Select {
+  width: 100%;
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  font-size: 14px;
+}
+
+.SelectFirst {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+/* ===================================================
+   PRODUCT GRID – MOBILE FIRST
+=================================================== */
+.mainpage_product-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  padding: 10px;
+}
+
+/* ===================================================
+   PRODUCT CARD
+=================================================== */
+.mainpage_product-card {
+  background: var(--bg-card);
+  border-radius: 12px;
+  padding: 12px;
+  box-shadow: var(--shadow-soft);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.mainpage_product-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-hover);
+}
+
+/* ===================================================
+   PRODUCT IMAGE
+=================================================== */
+.mainpage_product-img,
+.product-img {
+  width: 100%;
+  height: 140px;
+  object-fit: contain;
+  margin-bottom: 8px;
+}
+
+/* ===================================================
+   PRODUCT TEXT
+=================================================== */
+.mainpage_product-card h4 {
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.mainpage_product-card h5 {
+  font-size: 12px;
+  color: var(--discount);
+  margin-bottom: 4px;
+}
+
+.mainpage_product-card p {
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.strike {
+  color: var(--danger);
+  font-weight: 700;
+}
+
+/* ===================================================
+   QUANTITY CONTROLS (TOUCH FRIENDLY)
+=================================================== */
+.mainpage_product-card div {
+  margin-top: 6px;
+}
+
+.mainpage_product-card div button {
+  padding: 8px 12px;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  background: #f1f1f1;
+  font-weight: 700;
+}
+
+.mainpage_product-card div span {
+  margin: 0 6px;
+  font-weight: 700;
+}
+
+/* ===================================================
+   ACTION BUTTONS
+=================================================== */
+.buy-btn {
+  margin-top: 8px;
+  padding: 10px;
+  border-radius: 20px;
+  border: none;
+  font-weight: 700;
+  background: var(--primary-yellow);
+}
+
+.buy-btn:hover {
+  background: #f7ca00;
+}
+
+.mainpage_Buying-btn {
+  margin-top: 6px;
+  padding: 10px;
+  border-radius: 20px;
+  border: none;
+  font-weight: 700;
+  background: var(--primary-orange);
+  color: #fff;
+}
+
+.mainpage_Buying-btn:hover {
+  background: #fa8900;
+}
+
+/* ===================================================
+   TABLET VIEW (>= 600px)
+=================================================== */
+@media (min-width: 600px) {
+  .customer-info {
+    flex-direction: row;
+    justify-content: space-between;
+    text-align: left;
+  }
+
+  .mainpage_filter-container {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .mainpage_product-list {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .mainpage_product-img,
+  .product-img {
+    height: 160px;
+  }
+}
+
+/* ===================================================
+   DESKTOP VIEW (>= 992px)
+=================================================== */
+@media (min-width: 992px) {
+  .mainpage_product-list {
+    grid-template-columns: repeat(4, 1fr);
+    max-width: 1400px;
+    margin: auto;
+  }
+
+  .mainpage_product-img,
+  .product-img {
+    height: 190px;
+  }
+}

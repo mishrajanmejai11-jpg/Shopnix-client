@@ -103,9 +103,9 @@ export default function MainPage() {
 
         <nav className="header-links">
           <Link to="/home">Home</Link>
-          <Link to="/CustomerMain">Customer Login</Link>
-          <Link to="/VenderMain">Vendor Login</Link>
-          <Link to="/adminlogin">Admin Login</Link>
+          <Link to="/CustomerMain">Customer</Link>
+          <Link to="/VenderMain">Vendor</Link>
+          <Link to="/adminlogin">Admin </Link>
         </nav>
 
         <div className="header-right">
