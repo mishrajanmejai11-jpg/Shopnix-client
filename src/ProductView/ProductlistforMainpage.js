@@ -3,7 +3,6 @@ import React, { useEffect, useState } from "react";
 import Bill from "../customer/Bills";
 import { toast } from "react-toastify";
 import CustomerLoginPopup from "../customer/CustomerLoginPopup";
-// import "./productlistformain.css"
 import "./productlist_main.css"
 
 
