@@ -3,7 +3,8 @@ import React, { useEffect, useState } from "react";
 import Bill from "../customer/Bills";
 import { toast } from "react-toastify";
 import CustomerLoginPopup from "../customer/CustomerLoginPopup";
-import "./productlistformain.css"
+// import "./productlistformain.css"
+import "./productlist_main.css"
 
 
 export default function ProductListforMainpage(){
@@ -262,7 +263,7 @@ export default function ProductListforMainpage(){
           />
           <span className="cart-icon">🛒</span>
         </div> */}
-                    <div className="filter-container">
+                    <div className="mainpage_filter-container">
                         <label>Filter By Price:</label>
                         <select onChange={handleFilterInc} className="filterBy">
                             <option defaultValue="0" >select</option>
@@ -276,13 +277,13 @@ export default function ProductListforMainpage(){
                                 <option key={pcatitem.pcatgid} value={pcatitem.pcatgid}>{pcatitem.pcatgname}</option>
                             ))}
                         </select>
-                        {updatedlist?(<div className="product-list">
+                        {updatedlist?(<div className="mainpage_product-list">
                                 {plist.map((item)=>{
                                     const cname=pcatglist.find((c)=> c.pcatgid===item.pcatgid)?.pcatgname||"N/A";
                                     const Qty=quantities[item.pid]||0;
                                     return(
-                                        <div className="product-card" key={item.pid}>
-                                            <img className="product-img" src={item.ppicname} alt={item.ppicname}></img>
+                                        <div className="mainpage_product-card" key={item.pid}>
+                                            <img className="mainpage_product-img" src={item.ppicname} alt={item.ppicname}></img>
                                             <h5>Discount OFFER -{`${item.discount}%`}</h5>
                                             <h4>{item.pname}</h4>
                                             <p>
@@ -296,16 +297,16 @@ export default function ProductListforMainpage(){
                                                <button onClick={()=>increaseQantity(item.pid)}>+</button>
                                                <button onClick={()=>handleRemoveItem(item.pid)}>Remove</button>
                                             </div>):(<button className="buy-btn" onClick={()=>handleBuybtn(item.pid)}>Add Cart</button>)}
-                                            <button className="Buying-btn" onClick={()=> handleBuyBill(item.pid)}>Buy</button>
+                                            <button className="mainpage_Buying-btn" onClick={()=> handleBuyBill(item.pid)}>Buy</button>
                                         </div>
                                     );
                                 })}
-                        </div>):(<div className="product-list">
+                        </div>):(<div className="mainpage_product-list">
                                 {plist.map((item)=>{
                                     const cname=pcatglist.find((c)=> c.pcatgid===item.pcatgid)?.pcatgname||"N/A";
                                     const Qty=quantities[item.pid]||0;
                                     return(
-                                        <div className="product-card" key={item.pid}>
+                                        <div className="mainpage_product-card" key={item.pid}>
                                             <img className="product-img" src={item.ppicname} alt={item.ppicname}></img>
                                             <h5>Discount OFFER - {`${item.discount}%`}</h5>
                                             <h4>{item.pname}</h4>
@@ -320,7 +321,7 @@ export default function ProductListforMainpage(){
                                                <button onClick={()=>increaseQantity(item.pid)}>+</button>
                                                <button onClick={()=>handleRemoveItem(item.pid)}>Remove</button>
                                             </div>):(<button className="buy-btn" onClick={()=>handleBuybtn(item.pid)}>Add Cart</button>)}
-                                            <button className="Buying-btn" onClick={()=> handleBuyBill(item.pid)}>Buy</button>
+                                            <button className="mainpage_Buying-btn" onClick={()=> handleBuyBill(item.pid)}>Buy</button>
                                         </div>
                                     );
                                 })}
