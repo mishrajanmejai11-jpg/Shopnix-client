@@ -56,7 +56,7 @@ import ProductListbyCatg from "./ProductView/ProductlistbyCatg.js";
 import Customermain from "./customer/Customermain.jsx";
 import CustomerReg from "./customer/customerReg.js";
 import AdminLogin from "./Adminview/AdminLogin.js";
-import MainSlider from "./slidercomponent/Mainslider.jsx";
+// import MainSlider from "./slidercomponent/Mainslider.jsx";
 import HomeSlider from "./slidercomponent/HomeSlider.jsx";
 import ProductListforMainpage from "./ProductView/ProductlistforMainpage.js";
 
@@ -70,7 +70,7 @@ export default function MainPage() {
   useEffect(()=>{
     axios.get(`${apiurl}/productcatg/showproductcatg`).then((res)=>{
             setProductcatg(res.data);})
-  },[]);
+  },[productcatg]);
 
   // useEffect(()=>{
   //   if (catgid) {

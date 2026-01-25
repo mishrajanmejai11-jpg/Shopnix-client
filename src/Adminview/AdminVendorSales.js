@@ -6,7 +6,6 @@ import {
     Chart as ChartJS,
     BarElement,
     CategoryScale,
-    linearScale,
     Tooltip,
     Legend,
     LinearScale,
@@ -21,10 +20,10 @@ ChartJS.register(BarElement, CategoryScale, LinearScale, Tooltip, Legend);
 export default function AdminVendorSales(){
     const[sales,setSales]=useState([]);
     const[salesSearch, setSalesSearch]=useState("");
-    const[fromDate, useFromDate]=useState("");
-    const[toDate, setToDate]=useState("");
+    const[fromDate]=useState("");
+    const[toDate]=useState("");
     const[salesPage, setSalesPage]=useState(1);
-    const[salesPerPage, setSalesPerPage]=useState(10);
+    const[salesPerPage]=useState(10);
     const[grandTotal, setGrandTotal]=useState(0);
     const[productTotals, setProductTotals]=useState({});
     const[totalProductSold, setTotalProductSold]=useState(0);
@@ -82,7 +81,7 @@ export default function AdminVendorSales(){
     useEffect(()=>{
         if(selectedVender) fetchSalesManually();
         else setSales([]);
-    },[selectedVender]);
+    },[sales]);
 
     //========================FILTER======================
     const filteredSales= sales.filter((s)=>{

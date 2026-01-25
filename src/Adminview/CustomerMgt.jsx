@@ -23,7 +23,7 @@ export default function CustomerMgt(){
     useEffect(()=>{
         axios.get(`${url}/customer/getcustomer`).then((res)=>setCustomerList(res.data)).catch((err)=>toast.error(err));
         axios.get(`${url}/state/show`).then((res)=>setStates(res.data)).catch(err=>toast.error(err));
-    },[]);
+    },[customerList]);
 
     //open profile model
     const handleViewProfile=(cid)=>{
@@ -101,10 +101,10 @@ export default function CustomerMgt(){
         setCustomerList((prev)=> prev.map((c)=>(c.Cid===cid?{...c,status:newStatus}:c)));
 
         axios.get(`${url}/customer/getcustomerdetails/${cid}`).then((res)=>{ 
-            const email=res.data.Cemail;
+            // const email=res.data.Cemail;
         axios.put(`${url}/customer/customermanage/${cid}/${newStatus}`).then((res)=>{
-            const subject=newStatus===true?"Login Activation":"Login Deactivation";
-            const message=newStatus===true?"Your ID is Activated by Admin. You can login Now": "Your ID is Inactivated by Admin. You Cannot Login";
+            // const subject=newStatus===true?"Login Activation":"Login Deactivation";
+            // const message=newStatus===true?"Your ID is Activated by Admin. You can login Now": "Your ID is Inactivated by Admin. You Cannot Login";
         // axios.post(`${url}/emailactivation/sendemails/${email}/${subject}/${message}`); 
             
         }).catch(err=> toast.error(err));

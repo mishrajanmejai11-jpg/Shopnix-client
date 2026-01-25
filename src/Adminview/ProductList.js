@@ -6,7 +6,6 @@
    import Bill from "../customer/Bills";
     function ProductList(props)
     {
-         const [itemcount,setItemCount] = useState(0);
          const [selitems,setSelItems] = useState([]);
          const [pcatglist,setPCatgList] = useState([]);
          const [plist,setPList] = useState([]);
@@ -36,7 +35,7 @@
                 }).catch((err)=> {
                     alert(err);
                 })
-                 },[]);
+                 },[plist]);
 
                  const handleActiveButton=(evt) => {
                     let pid=parseInt(evt);
@@ -58,25 +57,25 @@
                  }); 
                  }
 
-                 const handleCheckOutButton=()=>{
-                    alert("Hello");
-                    if(selitems.length<=0)
-                    {
-                        alert("Please Buy Some Product");
-                    }
-                    else
-                    {
-                        const root=ReactDOM.createRoot(document.getElementById("root"));
+                //  const handleCheckOutButton=()=>{
+                //     alert("Hello");
+                //     if(selitems.length<=0)
+                //     {
+                //         alert("Please Buy Some Product");
+                //     }
+                //     else
+                //     {
+                //         const root=ReactDOM.createRoot(document.getElementById("root"));
 
-                        let ccid=props.data;
-                        let obj = {
-                            selitems:selitems,
-                        cid:ccid
-                        };
+                //         let ccid=props.data;
+                //         let obj = {
+                //             selitems:selitems,
+                //         cid:ccid
+                //         };
 
-                        root.render(<Bill data={obj}></Bill>)
-                    }
-                 }
+                //         root.render(<Bill data={obj}></Bill>)
+                //     }
+                //  }
 
                  const handleSearch=(evt)=>{
                     if(evt.target.value>0)
@@ -195,7 +194,7 @@
                                     <td>
                                         {
                                             pcatglist.map((citem)=>{
-                                                if(item.pcatgid==citem.pcatgid)
+                                                if(item.pcatgid===citem.pcatgid)
                                                 {
                                                     cname=(citem.pcatgname)
                                                 }
@@ -205,7 +204,7 @@
                                     </td>
 
                               <td>
-                                <img src={item.ppicname} height="100" width="100"></img>
+                                <img src={item.ppicname} height="100" width="100" alt="he"></img>
                                 </td>      
 
                                 <td>{item.status?"Active":"Inactive"}</td>

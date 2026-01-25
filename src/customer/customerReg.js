@@ -16,10 +16,10 @@ export default function CustomerReg(){
     const [caddress,setCAddress]= useState('');
     const [ccontact,setCContact] = useState("");
     const [cemail,setCEmail] = useState("");
-    const [cpicname,setCPicName]= useState();
+    // const [cpicname,setCPicName]= useState();
     const [cid, setCId]= useState("");
     const [image, setImage]= useState ( {preview:'' ,data: ''});
-    const [status, setstatus] = useState();
+    // const [status, setstatus] = useState();
     const [stlist,setstList] =useState([]); 
     const [ctlist,setCtList] = useState([]);
     const [errors,setErrors] = useState({});
@@ -45,7 +45,6 @@ export default function CustomerReg(){
             setCAddress('');
             setCEmail('');
             setCContact('');
-            setCPicName('');
         }
     const handleIdselect=(e)=>{
         setStId(e.target.value);
@@ -196,7 +195,6 @@ axios.post(`${Apiurl}register`, formData, {
             <div className="customer-register-page">
                 <div className="customer-register-container">
                     <h2> Customer Registration Form</h2>
-                    <p id="status">{status}</p>
                     <form className="customer-registr-form" onSubmit={handleRegisterBtn}>
                         <label>Customer ID <span>{cid}</span></label>
                         <label>User ID <input type="text" onChange={(e)=> setCUserId(e.target.value)} placeholder="User Id Must be more than 5 character"></input>{errors.cuserid}</label>

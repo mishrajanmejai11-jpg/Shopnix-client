@@ -23,7 +23,7 @@ function ShowBills(){
         .catch((err)=> toast.error(err));
         axios.get(`${url}/product/showproduct`).then((res)=> setPList(res.data))
         .catch((err)=> toast.error(err));
-    },[]);
+    },[custlist, plist]);
 
     const handleCustomerSelect=(evt)=>{
         const cid=evt.target.value;

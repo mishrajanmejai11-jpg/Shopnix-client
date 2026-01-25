@@ -25,10 +25,10 @@ const apiurl=process.env.REACT_APP_API_URL;
     useEffect(()=>{
         getNewpid();
         axios.get(`${apiurl}/productcatg/showproductcatg`).then(res=> setPcatglist(res.data)).catch(err=> toast.error(err));
-    },[]);
+    },[pid]);
     useEffect(()=>{
         fetchProduct();
-    },[]);
+    },[plist]);
     //fetch vender product
     var fetchProduct=()=>{
         if (venderid) {

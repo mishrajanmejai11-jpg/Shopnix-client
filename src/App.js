@@ -1,5 +1,5 @@
 
-import React, { Activity, useState } from "react";
+import React, {  useState } from "react";
 // import VenderLogin from "./Venderview/Venderlogin";
 // import CustomerLogin from "./customer/customerlogin";
 import ProductListforMainpage from "./ProductView/ProductlistforMainpage";
@@ -15,7 +15,7 @@ import OfferBar from "./slidercomponent/Offerbar";
 export default function App() {
     // let [isVlogin,setIsVLogin]=useState(false);
     // let [isClogin,setIsClogin]=useState(false);
-    let [showproduct,setShowProduct]=useState(true);
+    let [showproduct]=useState(true);
 
 
   return (

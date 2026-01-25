@@ -1,9 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import bgimg from "../assets/customer_logo.jpg";
+// import bgimg from "../assets/customer_logo.jpg";
 import "./customermain.css";
-import HomeSlider from "../slidercomponent/HomeSlider";
-import MainSlider from "../slidercomponent/Mainslider";
+// import HomeSlider from "../slidercomponent/HomeSlider";
+// import MainSlider from "../slidercomponent/Mainslider";
 import { FaUserEdit } from "react-icons/fa";
 
 export default function Customermain(){

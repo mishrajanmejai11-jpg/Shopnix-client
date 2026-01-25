@@ -27,7 +27,7 @@ export default function ProductCatgMgt(){
     };
     useEffect(()=>{
         fetchCategoryList();
-    },[]);
+    },[pcatgList]);
     const handleSaveBtn=()=>{
         if (!pcatgname.trim()) {
             toast.info('Category Name Cannot be Empty');
